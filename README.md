@@ -8,9 +8,13 @@
 P.s. на windows php должен быть указан в PATH
   
   
- Получение пакетов и настройка:
-php composer.phar install
-mv .env.example .env
-php composer.phar dump-autoload
-php artisan key:generate
+Получение пакетов и настройка:
+  
+ php composer.phar install
+  
+ mv .env.example .env
+  
+ php composer.phar dump-autoload
+  
+ php artisan key:generate
 </p>
