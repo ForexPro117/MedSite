@@ -28,5 +28,7 @@
  php composer.phar dump-autoload
   
  php artisan key:generate
+    
+ php artisan storage:link - связывает папку storage и public (желательно выполнить!)
 </p>
 
