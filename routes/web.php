@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', ['villages' => ["Алнаши", "Балезино"]]);
+    return view('home');
 });
 
-Route::get('/do', function () {
-    return view('dkork.doctor');
-})->name("do");

@@ -72,7 +72,7 @@ h1 {
     line-height: 26px;
     text-align: center;
     color: #FFFFFF;
-    transition: 0.7s;
+    transition: 0.4s;
 }
 
 .btn_poly_orange:hover {
@@ -90,7 +90,7 @@ h1 {
     line-height: 26px;
     text-align: center;
     color: #FFFFFF;
-    transition: 0.7s;
+    transition: 0.4s;
 }
 
 .btn_poly_blue:hover {
@@ -100,9 +100,10 @@ h1 {
 .udm_item {
     color: black;
     font-size: 22px;
-    text-decoration-line: underline;
+    transition: 0.5s;
 }
 
 .udm_item:hover {
+    text-decoration-line: underline;
     cursor: pointer;
 }

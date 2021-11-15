@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<header id="1232323" class="text-white some">
+<header class="text-white">
     <div class="container nav p-2">
         <a href="/" class="navbar-brand nav text-white">
             <input type="image" class="logo_img" src="storage/igis_logo_lett.png">
