@@ -9,7 +9,6 @@ body {
 header {
     background: rgba(61, 126, 224, 0);
     position: fixed;
-    height: 80px;
     width: 100%;
     z-index: 1000;
     transition: 0.7s;
