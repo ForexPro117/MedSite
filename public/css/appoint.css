@@ -1,0 +1,201 @@
+header {
+    background: rgba(61, 126, 224, 0.95) !important;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+}
+
+.main_title {
+    font-weight: 300;
+    font-size: 48px;
+    color: #000000;
+}
+
+.secondary_title {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.input-box {
+    width: 600px;
+}
+
+.inputs {
+    display: block;
+    width: 100%;
+    height: 43px;
+    padding-left: 5px;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.select {
+    margin-left: 10px;
+    border-radius: 25px;
+    border: none;
+    background: #59FF7D;
+    height: 40px;
+    min-width: 120px;
+}
+
+.hints {
+    margin-top: 10px;
+}
+
+.btn_help {
+    color: white;
+    border: none;
+    min-width: 102px;
+    height: 42px;
+    background: #3E51B2;
+    border-radius: 25px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.btn_help:hover {
+    -webkit-transform: scale(1.02);
+}
+
+.btn_delete {
+    background: #FF5050 url("../storage/x.png") center no-repeat;
+    background-size: 20px;
+    border: none;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.btn_delete:hover {
+    -webkit-transform: scale(1.02);
+}
+
+.selected_locality {
+    display: none;
+}
+
+.selected_polyclinic {
+    display: none;
+}
+
+.selected_doctor {
+    display: none;
+}
+
+.doctor_card {
+    border: none;
+    width: 242px;
+    height: 242px;
+    background: rgba(88, 139, 237, 0.7);
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.doctor_card:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.03);
+    background: rgba(88, 139, 237, 0.9);
+}
+
+.avatar {
+    height: 120px;
+    width: 120px;
+    border: none;
+    border-radius: 50%;
+    background-image: url("../storage/person.jpg");
+    background-size: cover;
+    margin: auto auto 5px;
+}
+
+
+.name {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0;
+}
+
+.spec {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+
+.details {
+    width: 102px;
+    height: 28px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    border: none;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.details:hover {
+    -webkit-transform: scale(1.03);
+    background: #FFAA47;
+}
+
+.time_button {
+    list-style-type: none;
+    text-align: center;
+    border: none;
+    background: #59FF7D;
+    color: black;
+    border-radius: 25px;
+    width: 95px;
+    height: 34px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.day {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.day:hover {
+    text-decoration-line: underline;
+}
+
+.number-box {
+    display: none;
+}
+
+.submit {
+    border: none;
+    border-radius: 25px;
+    background: #ffaa47;
+    color:  white;
+    font-size: 22px;
+    min-width: 200px;
+    height: 60px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.available_days {
+    margin-left: 10px;
+}
+
+.submit:hover {
+    -webkit-transform: scale(1.03);
+}
+
+

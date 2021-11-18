@@ -33,25 +33,14 @@
 
     </div>
     <div class="container">
-        <div class="">
-            <h1>Учреждения г. Ижевска</h1>
-        </div>
+        <h1 class="titles">Учреждения г. Ижевска</h1>
         <div class="justify-content-between">
-            <div>
                 <button class="btn_poly_orange">Взрослые поликлиники и больницы</button>
                 <button class="btn_poly_orange">Детские поликлиники и больницы</button>
-            </div>
-
-            <div>
                 <button class="btn_poly_blue">Стоматологии</button>
                 <button class="btn_poly_blue">Спецучреждения и диспансеры</button>
-            </div>
-
         </div>
-        <div class="">
-            <h1>Учреждения Удмуртии</h1>
-        </div>
-
+        <h1 class="titles">Учреждения Удмуртии</h1>
         <div class="d-flex flex-row">
             <ul class="d-flex flex-column col-md-4">
                 @foreach($villages as $key => $area)
@@ -68,9 +57,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="">
-            <h1>Прочие учреждения</h1>
-        </div>
+        <h1 class="titles">Прочие учреждения</h1>
         <ul>
             <li class="udm_item" href="#">Симонихинская больница филиал ФБУЗ ПОМЦ ФМБА России, Сарапул</li>
         </ul>
