@@ -27,7 +27,7 @@
         </div>
         <div class="selected_locality">
             <input id="selected_city" type="button" class="btn_help">
-            <input id="delete_city"  type="button" class="btn_delete">
+            <input id="delete_city" onclick="deleteCity()" type="button" class="btn_delete">
         </div>
 
         <h4 class="secondary_title">Выберите поликлинику или больницу</h4>

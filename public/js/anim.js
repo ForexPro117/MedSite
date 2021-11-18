@@ -72,5 +72,3 @@ function deleteDoctor() {
     document.getElementById('doctor').value = ""
 }
 
-$("#delete_city").click(()=>{deleteCity();console.log("ERRRORRRRRRR")});
-
