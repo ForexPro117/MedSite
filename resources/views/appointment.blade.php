@@ -11,11 +11,13 @@
         <div class="header d-flex align-items-center justify-content-center">
             <h1 class="main_title">Запись на прием к врачу</h1>
         </div>
-            <h4 class="secondary_title">В каком населенном пункте вы бы хотели записаться?</h4>
-        <div class="input-box">
+
+        <h4 class="secondary_title">В каком населенном пункте вы бы хотели записаться?</h4>
+
+        <div id="box-locality" class="input-box">
             <div class="select_village d-flex flex-inline">
                 <input type="text" id="city" class="inputs" placeholder="Введите название нас. пункта...">
-                <button class="select">Выбрать</button>
+                <button id="confirm" onclick="selectLocality()" class="select">Выбрать</button>
             </div>
             <div id="city_box" class="hints">
                 <input type="button" class="btn_help" onclick="selectСity('Ижевск')" value="Ижевск">
@@ -23,27 +25,44 @@
                 <input type="button" class="btn_help" onclick="selectСity('Воткинск')" value="Воткинск">
             </div>
         </div>
+        <div class="selected_locality">
+            <input id="selected_city" type="button" class="btn_help">
+            <input id="delete_city"  type="button" class="btn_delete">
+        </div>
+
         <h4 class="secondary_title">Выберите поликлинику или больницу</h4>
-        <div class="input-box">
+
+        <div id="box-polyclinics" class="input-box">
             <div class="select_village d-flex flex-inline">
                 <input type="text" id="polyclinic" class="inputs" placeholder="Введите название поликлиники...">
-                <button class="select">Выбрать</button>
+                <button onclick="selectPolyclinic()" class="select">Выбрать</button>
             </div>
         </div>
+        <div class="selected_polyclinic">
+            <input id="selected_poly_btn" type="button" class="btn_help">
+            <input id="delete_polyclinic" onclick="deletePolyclinic()" type="button" class="btn_delete">
+        </div>
+
         <h4 class="secondary_title">Выберите специализацию врача</h4>
-        <div class="input-box">
+
+        <div id="box-doctors" class="input-box">
             <div class="select_village d-flex flex-inline">
                 <input type="text" id="doctor" class="inputs" placeholder="Введите специализацию врача...">
-                <button class="select">Выбрать</button>
+                <button onclick="selectDoctorSpec()" class="select">Выбрать</button>
             </div>
-
             <div id="doctor_box" class="hints">
                 <input type="button" class="btn_help" onclick="selectDoctor('Терапевт')" value="Терапевт">
                 <input type="button" class="btn_help" onclick="selectDoctor('Гастроэнтеролог')" value="Гастроэнтеролог">
                 <input type="button" class="btn_help" onclick="selectDoctor('Гинеколог')" value="Гинеколог">
             </div>
         </div>
+        <div class="selected_doctor">
+            <input id="selected_doctor_btn" type="button" class="btn_help">
+            <input id="delete_doctor" onclick="deleteDoctor()" type="button" class="btn_delete">
+        </div>
+
         <h4 class="secondary_title">Список доступных врачей</h4>
+
         <div class="doctor_card">
             <div class="avatar"></div>
             <p class="name">Иванов Иван Иванович</p>

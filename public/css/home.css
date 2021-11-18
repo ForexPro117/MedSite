@@ -2,7 +2,7 @@
     width: 100%;
     height: 579px;
     background-size: cover;
-    background: #94B8FF url(../storage/homepage_background.jpg);
+    background: #94B8FF url(../storage/homepage_background.jpg) no-repeat;
     z-index: 1;
 }
 

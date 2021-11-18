@@ -26,9 +26,13 @@ header {
 }
 
 .btn_search {
+    background: white url("../storage/loupe.png") center no-repeat;
+    background-size: 20px;
     margin: auto 0;
     width: 43px;
     height: 43px;
+    border-radius: 50%;
+    border: none;
     transition: 0.7s;
 }
 
