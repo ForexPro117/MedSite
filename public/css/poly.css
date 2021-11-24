@@ -1,0 +1,87 @@
+.list_view {
+    background: #8D98F9 url("../storage/list.png") center no-repeat;
+    background-size: 20px;
+    height: 42px;
+    width: 42px;
+    border: none;
+    border-radius: 15px;
+    margin-right: 5px;
+
+}
+
+.grid_view {
+    background: #B7B1B1 url("../storage/grid.png") center no-repeat;
+    background-size: 20px;
+    height: 42px;
+    width: 42px;
+    border: none;
+    border-radius: 15px;
+}
+
+.grid_view .press {
+    background: #8D98F9 url("../storage/grid.png") center no-repeat;
+}
+
+.view {
+    margin-bottom: 10px;
+}
+
+.secondary_title {
+    margin-left: 0;
+}
+
+.text_about {
+    height: 150px;
+}
+
+.photo {
+    background-image: url("../storage/photo_poly.jpg");
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.list_item {
+    margin: 10px 0;
+    cursor: pointer;
+    float: left;
+    width: 50%;
+    padding: 10px;
+    position: static;
+}
+
+.description, .address, .number {
+    margin-bottom: 0;
+}
+
+.address, .number {
+    font-weight: 500;
+}
+
+.grid_item {
+    border: none;
+    border-radius: 25px;
+    background: #8AAEF2;
+    width: 257px;
+    height: 304px;
+    display: none;
+}
+
+.grid_item .photo {
+    width: 150px;
+    margin: auto;
+}
+
+.grid_item .text_about_title {
+    text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
