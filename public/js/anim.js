@@ -90,14 +90,8 @@ function listView() {
 function gridView() {
   document.querySelector('.grid_view').style.background = 'rgba(138, 174, 242, 1) url("../storage/grid.png") center no-repeat';
   document.querySelector('.list_view').style.background = 'rgba(183, 177, 177, 1)';
+  let item = document.querySelectorAll("list_item").forEach(n => n.classList.remove('list_item').add('grid_item'));
+//   item.forEach(n => n.classList.add('grid_item'));
 
-  for (i = 0; i < elements.length; i++) {
-    (document.getElementsByClassName('description'))[i].style.display = 'none';
-    (document.getElementsByClassName('address'))[i].style.display = 'none';
-    (document.getElementsByClassName('number'))[i].style.display = 'none';
-    elements[i].style.cssText = "position: relative; margin-right: 40px; width: 25%; border: none; border-radius: 25px; background: #8AAEF2; width: 260px; height: 300px;";
-    (document.getElementsByClassName('photo'))[i].style.cssText = "top: 10%; width: 150px;";
-    (document.getElementsByClassName('text_about_title'))[i].style.cssText = "top: 50%; text-align: center;";
-  }
 }
 
