@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/appointment', function () {
     return view('appointment');
 });
@@ -29,3 +25,4 @@ Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoContro
     ->name('polyclinics');
 
 require __DIR__.'/auth.php';
+
