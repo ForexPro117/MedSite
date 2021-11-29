@@ -18,16 +18,22 @@
     border-radius: 15px;
 }
 
-.grid_view .press {
-    background: #8D98F9 url("../storage/grid.png") center no-repeat;
-}
-
 .view {
     margin-bottom: 10px;
 }
 
 .secondary_title {
     margin-left: 0;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+}
+
+.box.row {
+    display: flex;
+    flex-flow: row;
 }
 
 .text_about {
@@ -45,12 +51,20 @@
 }
 
 .list_item {
-    margin: 10px 0;
+    display: flex;
+    flex-flow: row;
+    border-radius: 25px;
+    margin: 10px 5px;
     cursor: pointer;
-    float: left;
-    width: 50%;
+    background: white;
+    width: 100%;
     padding: 10px;
-    position: static;
+    transition: 0.5s;
+}
+
+.list_item:hover {
+    -webkit-transform: scale(1.003);
+    background: #949dfc;
 }
 
 .description, .address, .number {
@@ -62,10 +76,11 @@
 }
 
 .grid_item {
+    display: flex;
+    flex-flow: column;
     border: none;
-    border-radius: 25px;
     background: #8AAEF2;
-    width: 257px;
+    width: 20%;
     height: 304px;
     padding: 10px 0 0 0;
 }
@@ -77,11 +92,9 @@
 
 .grid_item .text_about_title {
     text-align: center;
+    padding: 3px;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+
+
 

@@ -73,25 +73,43 @@ function deleteDoctor() {
 }
 
 var elements = document.getElementsByClassName("list_item");
+var row = document.getElementsByClassName("row");
+let desc = document.getElementsByClassName("description");
+let address = document.getElementsByClassName("address");
+let num = document.getElementsByClassName("number");
+let box = document.querySelector(".box");
+let grid = document.querySelector('.grid_view');
+let list = document.querySelector('.list_view');
 var i;
+
 // Представление списка
 function listView() {
-  document.querySelector('.grid_view').style.background = 'rgba(183, 177, 177, 1)';
-  document.querySelector('.list_view').style.background = 'rgba(138, 174, 242, 1)';
+     list.style.backgroundColor = '#8D98F9';
+     list.style.backgroundImage = 'url("../storage/list.png")';
+     grid.style.backgroundColor = '#B7B1B1';
+     grid.style.backgroundImage = 'url("../storage/grid.png")';
+     box.style.flexFlow = 'column';
   for (i = 0; i < elements.length; i++) {
-      (document.getElementsByClassName('description'))[i].style.display = '';
-      (document.getElementsByClassName('address'))[i].style.display = '';
-      (document.getElementsByClassName('number'))[i].style.display = '';
-      elements[i].style.cssText = "background: ''; width: 100%; margin-bottom: 10px; cursor: pointer; padding: 10px; position: static;";
+      elements[i].classList.add('list_item');
+      elements[i].classList.remove('grid_item');
+      desc[i].style.display = '';
+      address[i].style.display = '';
+      num[i].style.display = '';
   }
 }
 
 // Представление сетки
 function gridView() {
-  document.querySelector('.grid_view').style.background = 'rgba(138, 174, 242, 1) url("../storage/grid.png") center no-repeat';
-  document.querySelector('.list_view').style.background = 'rgba(183, 177, 177, 1)';
-  let item = document.querySelectorAll("list_item").forEach(n => n.classList.remove('list_item').add('grid_item'));
-//   item.forEach(n => n.classList.add('grid_item'));
-
+    list.style.backgroundColor = '#B7B1B1';
+    list.style.backgroundImage = 'url("../storage/list.png")';
+    grid.style.backgroundColor = '#8D98F9';
+    grid.style.backgroundImage = 'url("../storage/grid.png")';
+    box.style.flexFlow = 'row';
+    for(i = 0;i < elements.length; i++) {
+        elements[i].classList.add('grid_item');
+        desc[i].style.display = 'none';
+        address[i].style.display = 'none';
+        num[i].style.display = 'none';
+    }
 }
 
