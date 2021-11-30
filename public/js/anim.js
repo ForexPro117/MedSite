@@ -104,7 +104,7 @@ function gridView() {
     list.style.backgroundImage = 'url("../storage/list.png")';
     grid.style.backgroundColor = '#8D98F9';
     grid.style.backgroundImage = 'url("../storage/grid.png")';
-    box.style.flexFlow = 'row';
+    box.style.flexFlow = 'row wrap';
     for(i = 0;i < elements.length; i++) {
         elements[i].classList.add('grid_item');
         desc[i].style.display = 'none';

@@ -1,3 +1,7 @@
+.container {
+    flex: 1 1 auto;
+}
+
 .list_view {
     background: #8D98F9 url("../storage/list.png") center no-repeat;
     background-size: 20px;
@@ -27,13 +31,9 @@
 }
 
 .box {
+    width: 100%;
     display: flex;
     flex-flow: column;
-}
-
-.box.row {
-    display: flex;
-    flex-flow: row;
 }
 
 .text_about {
@@ -57,7 +57,6 @@
     margin: 10px 5px;
     cursor: pointer;
     background: white;
-    width: 100%;
     padding: 10px;
     transition: 0.5s;
 }
@@ -80,7 +79,7 @@
     flex-flow: column;
     border: none;
     background: #8AAEF2;
-    width: 20%;
+    width: 19%;
     height: 304px;
     padding: 10px 0 0 0;
 }

@@ -17,62 +17,23 @@
         </div>
 
         <div class="box">
-            <div class="list_item">
-                <div class="photo"></div>
-                <div class="text_about">
-                    <h5 class="text_about_title"> ГКБ №8 имени Однопозова И.Б. (ранее гор. поликлиника №3)</h5>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce in imperdiet lorem. Etiam pretium rhoncus interdum.
-                        Vivamus pellentesque augue at nunc venenatis,<br/> ut ultricies erat semper.
-                        Ut sed magna et nulla feugiat scelerisque. Maecenas blandit nec
-                        nibh non bibendum. Praesent.</p>
-                    <p class="address">Адрес: г. Ижевск, ул. Советская, 13 (центр города,
-                        рядом с Центральным автовокзалом)</p>
-                    <p class="number">Телефон: +79999999999</p>
+            @for($i = 0; $i < 12; $i++)
+                <div class="list_item">
+                    <div class="photo"></div>
+                    <div class="text_about">
+                        <h5 class="text_about_title"> ГКБ №8 имени Однопозова И.Б. (ранее гор. поликлиника №3)</h5>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Fusce in imperdiet lorem. Etiam pretium rhoncus interdum.
+                            Vivamus pellentesque augue at nunc venenatis,<br/> ut ultricies erat semper.
+                            Ut sed magna et nulla feugiat scelerisque. Maecenas blandit nec
+                            nibh non bibendum. Praesent.</p>
+                        <p class="address">Адрес: г. Ижевск, ул. Советская, 13 (центр города,
+                            рядом с Центральным автовокзалом)</p>
+                        <p class="number">Телефон: +79999999999</p>
+                    </div>
                 </div>
-            </div>
-            <div class="list_item">
-                <div class="photo"></div>
-                <div class="text_about">
-                    <h5 class="text_about_title"> ГКБ №8 имени Однопозова И.Б. (ранее гор. поликлиника №3)</h5>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce in imperdiet lorem. Etiam pretium rhoncus interdum.
-                        Vivamus pellentesque augue at nunc venenatis,<br/> ut ultricies erat semper.
-                        Ut sed magna et nulla feugiat scelerisque. Maecenas blandit nec
-                        nibh non bibendum. Praesent.</p>
-                    <p class="address">Адрес: г. Ижевск, ул. Советская, 13 (центр города,
-                        рядом с Центральным автовокзалом)</p>
-                    <p class="number">Телефон: +79999999999</p>
-                </div>
-            </div>
-            <div class="list_item">
-                <div class="photo"></div>
-                <div class="text_about">
-                    <h5 class="text_about_title"> ГКБ №8 имени Однопозова И.Б. (ранее гор. поликлиника №3)</h5>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce in imperdiet lorem. Etiam pretium rhoncus interdum.
-                        Vivamus pellentesque augue at nunc venenatis,<br/> ut ultricies erat semper.
-                        Ut sed magna et nulla feugiat scelerisque. Maecenas blandit nec
-                        nibh non bibendum. Praesent.</p>
-                    <p class="address">Адрес: г. Ижевск, ул. Советская, 13 (центр города,
-                        рядом с Центральным автовокзалом)</p>
-                    <p class="number">Телефон: +79999999999</p>
-                </div>
-            </div>
-            <div class="list_item">
-                <div class="photo"></div>
-                <div class="text_about">
-                    <h5 class="text_about_title"> ГКБ №8 имени Однопозова И.Б. (ранее гор. поликлиника №3)</h5>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce in imperdiet lorem. Etiam pretium rhoncus interdum.
-                        Vivamus pellentesque augue at nunc venenatis,<br/> ut ultricies erat semper.
-                        Ut sed magna et nulla feugiat scelerisque. Maecenas blandit nec
-                        nibh non bibendum. Praesent.</p>
-                    <p class="address">Адрес: г. Ижевск, ул. Советская, 13 (центр города,
-                        рядом с Центральным автовокзалом)</p>
-                    <p class="number">Телефон: +79999999999</p>
-                </div>
-            </div>
+            @endfor
+
         </div>
     </div>
 @endsection
