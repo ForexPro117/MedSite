@@ -21,3 +21,7 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
+Route::get('/polyclinics', function () {
+    return view('polyclinics');
+});
+

@@ -35,7 +35,7 @@
     <div class="container">
         <h1 class="titles">Учреждения г. Ижевска</h1>
         <div class="justify-content-between">
-                <button class="btn_poly_orange">Взрослые поликлиники и больницы</button>
+                <button onclick="location.href='/polyclinics'" class="btn_poly_orange">Взрослые поликлиники и больницы</button>
                 <button class="btn_poly_orange">Детские поликлиники и больницы</button>
                 <button class="btn_poly_blue">Стоматологии</button>
                 <button class="btn_poly_blue">Спецучреждения и диспансеры</button>

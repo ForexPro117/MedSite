@@ -1,9 +1,19 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Roboto;
 }
 
 .navbar-brand {
     margin: auto 0;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -56,6 +66,10 @@ header {
     -webkit-transform: scale(1.05);
     background: rgb(255, 170, 71);
     color: white;
+}
+
+main {
+    flex: 1 1 auto;
 }
 
 footer {
