@@ -25,3 +25,7 @@ Route::get('/polyclinics', function () {
     return view('polyclinics');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
