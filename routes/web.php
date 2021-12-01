@@ -25,8 +25,7 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/polyclinics', function () {
-    return view('polyclinics');
-});
+Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
+    ->name('polyclinics');
 
 require __DIR__.'/auth.php';
