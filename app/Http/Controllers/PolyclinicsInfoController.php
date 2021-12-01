@@ -17,8 +17,9 @@ class PolyclinicsInfoController extends Controller
     public function getPolyclinics($region)
     {
         $polyclinics = User::all();//zagluska
-
-        return view('polyclinics', ['polyclinics'=>$polyclinics]);
+       /* if ($region != "Алнаши")
+            abort(404);*/
+            return view('polyclinics', ['polyclinics' => $polyclinics]);
     }
 
     public function getDoctors()
