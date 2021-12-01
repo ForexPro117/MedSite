@@ -9,8 +9,12 @@
     margin-bottom: 50px;
 }
 
+.name-box {
+    margin-bottom: 20px;
+}
+
 .input_login {
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
     height: 50px;
     min-width: 500px;
     padding-left: 15px;
@@ -20,14 +24,12 @@
 }
 
 .input_login:focus {
-    box-shadow: 1px 1px 5px black;
     -webkit-transform: scale(1.02);
 }
 
-
 .login-btn {
     font-size: 18px;
-    margin: auto;
+    margin: 10px auto 0 auto;
     border-radius: 25px;
     background-color: #3691FE;
     color: white;
@@ -40,4 +42,11 @@
 .login-btn:hover {
     -webkit-transform: scale(1.02);
     background-color: #4c63d9;
+}
+
+.error {
+    margin-top: 3px;
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
 }
