@@ -7,7 +7,8 @@
     <div class="container a">
         <div class="login-box">
             <h1 class="main_title">Авторизация</h1>
-            <form action="">
+            <form action="" method="post">
+                @csrf
                 <div class="name-box">
                     <input type="text" class="input_login" required placeholder="Введите вашу фамилию...">
                     <p class="error"></p>
