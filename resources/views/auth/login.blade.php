@@ -19,7 +19,7 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="text" name="login" :value="old('email')"  />
             </div>
 
             <!-- Password -->
@@ -29,7 +29,7 @@
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                autocomplete="current-password" />
             </div>
 
             <!-- Remember Me -->
