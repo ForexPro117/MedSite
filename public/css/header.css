@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
 }
 
 .navbar-brand {
@@ -39,8 +39,8 @@ header {
     background: white url("../storage/loupe.png") center no-repeat;
     background-size: 20px;
     margin: auto 0;
-    width: 43px;
-    height: 43px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     transition: 0.7s;
@@ -55,8 +55,8 @@ header {
     margin: auto 0 auto 10px;
     background: white;
     border-radius: 25px;
-    width: 123px;
-    height: 43px;
+    width: 120px;
+    height: 40px;
     font-size: 18px;
     text-align: center;
     transition: 0.7s;
@@ -66,6 +66,19 @@ header {
     -webkit-transform: scale(1.05);
     background: rgb(255, 170, 71);
     color: white;
+}
+
+.per-acc {
+    text-decoration: none;
+    color: white;
+    margin: auto 0 auto 10px;
+    display: none;
+    transition: 0.2s;
+}
+
+.per-acc:hover {
+    color: white;
+    text-decoration-line: underline;
 }
 
 main {

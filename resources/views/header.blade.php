@@ -25,6 +25,7 @@
             <div class="d-flex ms-auto">
                 <input type="button" class="btn_search">
                 <button type="button" onclick="location.href='/login'" class="button_login">Войти</button>
+                <a href="#" class="per-acc">Личный кабинет</a>
             </div>
         </div>
     </header>

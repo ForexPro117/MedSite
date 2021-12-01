@@ -76,7 +76,8 @@
 }
 
 .btn_poly_orange:hover {
-    -webkit-transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    background: #de953b;
 }
 
 .btn_poly_blue {
@@ -94,7 +95,8 @@
 }
 
 .btn_poly_blue:hover {
-    -webkit-transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    background: #324293;
 }
 
 .udm_item {
