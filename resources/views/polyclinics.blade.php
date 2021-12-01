@@ -17,7 +17,7 @@
         </div>
 
         <div class="box">
-            @for($i = 0; $i < 12; $i++)
+            @for($i = 0; $i < count($polyclinics); $i++)
                 <div class="list_item">
                     <div class="photo"></div>
                     <div class="text_about">
