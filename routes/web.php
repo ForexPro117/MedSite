@@ -17,15 +17,15 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/polyclinics', function () {
-    return view('polyclinics');
-});
+Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
+    ->name('polyclinics');
 
-Route::get('/login', function () {
-    return view('login');
-});
-
+require __DIR__.'/auth.php';

@@ -19,23 +19,28 @@
     <header class="text-white">
         <div class="container nav p-2">
             <a href="/" class="navbar-brand nav text-white">
-                <input type="image" class="logo_img" src="storage/igis_logo_lett.png">
+                <input type="image" class="logo_img" src="{{asset("storage/igis_logo_lett.png")}}">
                 <p class="logo_text">ГЕОИНФОРМАЦИОННАЯ<br>СПРАВОЧНАЯ<br>СИСТЕМА</p>
             </a>
             <div class="d-flex ms-auto">
                 <input type="button" class="btn_search">
-                <button type="button" onclick="location.href='/login'" class="button_login">Войти</button>
+                @if(Auth::check())
+                    <label class="nav-link py-3 text-white">{{Auth::user()->name}}</label>
+                    <button type="button" onclick="location.href='/logout'" class="button_login">Выйти</button>
+                @else
+                    <button type="button" onclick="location.href='/login'" class="button_login">Войти</button>
+                @endif
                 <a href="#" class="per-acc">Личный кабинет</a>
             </div>
         </div>
     </header>
     <main class="main">
         @yield("bodyContent")
-        <script src="js/anim.js"></script>
+        <script src="{{asset("js/anim.js")}}"></script>
     </main>
     <footer>
         <div class="container d-flex flex-column">
-            <img src="storage/igis_logo_white.png" width="40" class="logo_footer">
+            <img src="{{asset("storage/igis_logo_white.png")}}" width="40" class="logo_footer">
             <a href="#" class="footer_link">Единый справочный номер +79999999999</a>
             <a href="#" class="footer_link">Оставить отзыв или предложение</a>
             <a href="#" class="footer_link">Реклама</a>

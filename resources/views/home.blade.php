@@ -12,7 +12,8 @@
     <div class="title_homepage d-flex">
         <div class="d-flex flex-column col-6 align-items-center justify-content-center">
             <h1 class="title_text_homepage">Запись на прием <br>к врачу</h1>
-            <button class="btn_appoint" onclick="location.href='/appointment'" type="button">Записаться на прием</button>
+            <button class="btn_appoint" onclick="location.href='/appointment'" type="button">Записаться на прием
+            </button>
         </div>
     </div>
     <div class="quick_info">
@@ -35,24 +36,25 @@
     <div class="container">
         <h1 class="titles">Учреждения г. Ижевска</h1>
         <div class="justify-content-between">
-                <button onclick="location.href='/polyclinics'" class="btn_poly_orange">Взрослые поликлиники и больницы</button>
-                <button class="btn_poly_orange">Детские поликлиники и больницы</button>
-                <button class="btn_poly_blue">Стоматологии</button>
-                <button class="btn_poly_blue">Спецучреждения и диспансеры</button>
+            <button onclick="location.href='/polyclinics/Ижевск'" class="btn_poly_orange">Взрослые поликлиники и больницы
+            </button>
+            <button class="btn_poly_orange">Детские поликлиники и больницы</button>
+            <button class="btn_poly_blue">Стоматологии</button>
+            <button class="btn_poly_blue">Спецучреждения и диспансеры</button>
         </div>
         <h1 class="titles">Учреждения Удмуртии</h1>
         <div class="d-flex flex-row">
             <ul class="d-flex flex-column col-md-4">
                 @foreach($villages as $key => $area)
                     @if($key < 14)
-                        <li class="udm_item" href="#">{{$area}}</li>
+                        <li class="udm_item" onclick="location.href='{{route('polyclinics',[$area])}}'">{{$area}}</li>
                     @endif
                 @endforeach
             </ul>
             <ul class="d-flex flex-column col-md-4">
                 @foreach($villages as $key => $area)
                     @if($key > 13)
-                        <li class="udm_item" href="#">{{$area}}</li>
+                        <li class="udm_item" onclick="location.href='{{route('polyclinics',[$area])}}'">{{$area}}</li>
                     @endif
                 @endforeach
             </ul>
