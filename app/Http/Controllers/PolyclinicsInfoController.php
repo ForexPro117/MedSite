@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+
+use App\Models\Hospital;
+
 
 class PolyclinicsInfoController extends Controller
 {
@@ -15,16 +16,25 @@ class PolyclinicsInfoController extends Controller
      *
      */
     public function getPolyclinics($region)
-    {
-        $polyclinics = User::all();//zagluska
-       /* if ($region != "Алнаши")
-            abort(404);*/
-            return view('polyclinics', ['polyclinics' => $polyclinics]);
+    { //TODO: добавить описания для больниц
+        $polyclinics = Hospital::getDiscription()->where('district',$region);
+
+        if($polyclinics->first()==null)
+            abort(404);
+
+        return view('polyclinics', ['polyclinics' => $polyclinics]);
     }
 
     public function getDoctors()
     {
 
         return 'aa';
+    }
+
+    public function getBd()
+    {
+
+
+        return '';
     }
 }

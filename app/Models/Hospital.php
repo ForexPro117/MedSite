@@ -22,4 +22,16 @@ class Hospital extends Model
      * @var string
      */
     protected $table = 'hospital';
+
+    /**
+     * Возвращает связанные таблицы Hospital
+     * @return Hospital
+     */
+    public static function getDiscription()
+    {
+        return Hospital::Join('phonenumber', 'id_phoneNumber', '=', 'phonenumber.id')
+            ->Join('discription', 'id_discription', '=', 'discription.id')
+            ->get();
+    }
+
 }
