@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {
+    {//TODO подключить к форме создания пользователя
         return view('auth.register');
     }
 
@@ -35,13 +35,13 @@ class RegisteredUserController extends Controller
     {
         //TODO: доработать с типами
         $request->validate([
-            'login' => ['required', 'string', 'max:120','unique:users'],
+            'name' => ['required', 'string', 'max:90'],
             'email' => ['nullable','string', 'email', 'max:100'],
             'password' => ['required', 'confirmed', Rules\Password::defaults(),'max:90'],
         ]);
 
         $user = User::create([
-            'login' => $request->login,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

@@ -24,9 +24,7 @@ Route::get('/dashboard', function () {
 Route::get('/appointment', function () {
     return view('appointment');
 });
-Route::get('/login', function () {
-    return view('login');
-});
+
 Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
     ->name('polyclinics');
 

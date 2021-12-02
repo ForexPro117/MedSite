@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\LoginRequestAdmin;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        return view('login');
+    }
+
+    public function createAdmin()
+    {
         return view('auth.login');
     }
 
@@ -27,6 +33,21 @@ class AuthenticatedSessionController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
+    {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * Handle an incoming authentication admin request.
+     *
+     * @param  \App\Http\Requests\Auth\LoginRequestAdmin  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeAdmin(LoginRequestAdmin $request)
     {
         $request->authenticate();
 

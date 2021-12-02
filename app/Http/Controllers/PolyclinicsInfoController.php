@@ -31,10 +31,4 @@ class PolyclinicsInfoController extends Controller
         return 'aa';
     }
 
-    public function getBd()
-    {
-
-
-        return '';
-    }
 }

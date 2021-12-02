@@ -36,7 +36,7 @@
     <div class="container">
         <h1 class="titles">Учреждения г. Ижевска</h1>
         <div class="justify-content-between">
-            <button onclick="location.href='/polyclinics'" class="btn_poly_orange">Взрослые поликлиники и больницы
+            <button onclick="location.href='/polyclinics/Ижевск'" class="btn_poly_orange">Взрослые поликлиники и больницы
             </button>
             <button class="btn_poly_orange">Детские поликлиники и больницы</button>
             <button class="btn_poly_blue">Стоматологии</button>
@@ -47,14 +47,14 @@
             <ul class="d-flex flex-column col-md-4">
                 @foreach($villages as $key => $area)
                     @if($key < 14)
-                        <li class="udm_item"><a href="{{route('polyclinics',[$area])}}">{{$area}}</a></li>
+                        <li class="udm_item" onclick="location.href='{{route('polyclinics',[$area])}}'">{{$area}}</li>
                     @endif
                 @endforeach
             </ul>
             <ul class="d-flex flex-column col-md-4">
                 @foreach($villages as $key => $area)
                     @if($key > 13)
-                        <li class="udm_item"><a href="{{route('polyclinics',[$area])}}">{{$area}}</a></li>
+                        <li class="udm_item" onclick="location.href='{{route('polyclinics',[$area])}}'">{{$area}}</li>
                     @endif
                 @endforeach
             </ul>

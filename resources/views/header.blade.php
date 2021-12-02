@@ -24,7 +24,12 @@
             </a>
             <div class="d-flex ms-auto">
                 <input type="button" class="btn_search">
-                <button type="button" onclick="location.href='/login'" class="button_login">Войти</button>
+                @if(Auth::check())
+                    <label class="nav-link py-3 text-white">{{Auth::user()->name}}</label>
+                    <button type="button" onclick="location.href='/logout'" class="button_login">Выйти</button>
+                @else
+                    <button type="button" onclick="location.href='/login'" class="button_login">Войти</button>
+                @endif
                 <a href="#" class="per-acc">Личный кабинет</a>
             </div>
         </div>
