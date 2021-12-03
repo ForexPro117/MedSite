@@ -19,7 +19,7 @@
         <div class="box">
             @foreach($polyclinics as $polyclinic)
                 <div class="list_item">
-                    <div class="photo"></div>
+                    <img class="photo" src="{{asset($polyclinic->uri)}}">
                     <div class="text_about">
                         <h5 class="text_about_title"> {{$polyclinic->name}}</h5>
                         <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
