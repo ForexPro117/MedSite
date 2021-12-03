@@ -17,6 +17,7 @@ class PolyclinicsInfoController extends Controller
      */
     public function getPolyclinics($region)
     { //TODO: добавить описания для больниц
+      
         if (request()->type)
             $polyclinics = Hospital::getDiscription()->where('district', $region)
             ->where('type',request()->type);
