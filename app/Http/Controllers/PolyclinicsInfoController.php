@@ -17,9 +17,13 @@ class PolyclinicsInfoController extends Controller
      */
     public function getPolyclinics($region)
     { //TODO: добавить описания для больниц
-        $polyclinics = Hospital::getDiscription()->where('district',$region);
+        if (request()->type)
+            $polyclinics = Hospital::getDiscription()->where('district', $region)
+            ->where('type',request()->type);
+        else
+            $polyclinics = Hospital::getDiscription()->where('district', $region);
 
-        if($polyclinics->first()==null)
+        if ($polyclinics->first() == null)
             abort(404);
 
         return view('polyclinics', ['polyclinics' => $polyclinics]);

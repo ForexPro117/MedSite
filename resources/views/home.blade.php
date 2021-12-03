@@ -36,11 +36,22 @@
     <div class="container">
         <h1 class="titles">Учреждения г. Ижевска</h1>
         <div class="justify-content-between">
-            <button onclick="location.href='/polyclinics/Ижевск'" class="btn_poly_orange">Взрослые поликлиники и больницы
+            <button class="btn_poly_orange"
+                    onclick="location.href='{{route('polyclinics',['Ижевск','type'=>'adult'])}}'">
+                Взрослые поликлиники и больницы
             </button>
-            <button class="btn_poly_orange">Детские поликлиники и больницы</button>
-            <button class="btn_poly_blue">Стоматологии</button>
-            <button class="btn_poly_blue">Спецучреждения и диспансеры</button>
+            <button class="btn_poly_orange"
+                    onclick="location.href='{{route('polyclinics',['Ижевск','type'=>'child'])}}'">
+                Детские поликлиники и больницы
+            </button>
+            <button class="btn_poly_blue"
+                    onclick="location.href='{{route('polyclinics',['Ижевск','type'=>'dentistry'])}}'">
+                Стоматологии
+            </button>
+            <button class="btn_poly_blue"
+                    onclick="location.href='{{route('polyclinics',['Ижевск','type'=>'special'])}}'">
+                Спецучреждения и диспансеры
+            </button>
         </div>
         <h1 class="titles">Учреждения Удмуртии</h1>
         <div class="d-flex flex-row">
