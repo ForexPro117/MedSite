@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserInfoController extends Controller
 {
@@ -12,15 +13,35 @@ class UserInfoController extends Controller
      */
     public function getUsersList()
     {
-        return view("admin.admin_panel_user_list",['users'=>User::where('role','user')->get()]);
+        return view("admin.admin_panel_user_list",
+            ['users' => User::where('role', 'user')->get()]);
     }
 
     /**
-     * Возвращает поьлзователя по конкретному ID
+     * Возвращает пользователя по конкретному ID
      * @param int $id
      */
-    public function getUser($id)
+    public function getUserForm($id)
     {
-        return view("admin.admin_panel_user_info_form",['user'=>User::find($id)]);
+        return view("admin.admin_panel_user_info_form", ['user' => User::find($id)]);
+    }
+
+    /**
+     * Обновляет данные пользователя и возвращает обновленную таблицу
+     */
+    public function updateUser()
+    {
+        $data=json_decode($_POST['data']);
+        $user = User::find($data->id);
+
+        $user->id=$data->id;
+        $user->name=$data->name;
+        $user->email=$data->email;
+        $user->role=$data->role;
+        $user->password=Hash::make($data->password);
+        $user->save();
+
+        return view("admin.admin_panel_user_list",
+            ['users' => User::where('role', 'user')->get()]);
     }
 }

@@ -15,7 +15,7 @@
 </header>
 <div>
 
-    <form action="/login" method="post" class="login_form">
+    <form action="/login/admin" method="post" class="login_form">
 
         <div class="login_form_title">Логин или Email</div>
         <label class="login_form_input">

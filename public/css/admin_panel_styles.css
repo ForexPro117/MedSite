@@ -18,16 +18,16 @@
     width: 70%;
 }
 
-
-/* Ссылки меню навигации */
-.sidenav_main_block a {
+/* Кнопки меню навигации */
+.sidenav_main_block > div {
     padding: 8px 8px 8px 32px;
     display: block;
 }
 
 /* Когда вы наводите курсор мыши на навигационные ссылки, изменяется их цвет */
-.sidenav_main_block a:hover {
-    color: black;
+.sidenav_main_block > div:hover {
+    color: white;
+    background-color: #0b88a8;;
 }
 
 
@@ -100,10 +100,7 @@ body {
     padding: 0;
 }
 
-a {
-    text-decoration: none;
-    transition: 0.3s;
-}
+
 
 .main_window {
     position: relative;
@@ -123,6 +120,8 @@ a {
 
 .sidenav_item {
     display: inline-block;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .sidenav_item input {

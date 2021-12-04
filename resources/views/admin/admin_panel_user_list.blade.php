@@ -18,28 +18,29 @@
     <table class="users_table">
         <tr class="users_table_header">
             <td>
-                <label for="subscribeNews"></label><input type="checkbox" id="subscribeNews" name="subscribe"
-                                                          value="newsletter">
+                <label for="subscribeNews"></label>
+                <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
             </td>
-            <td>Id</td>
-            <td>Логин</td>
-            <td>Почта</td>
-            <td>Пароль</td>
+            <th>Id</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Создан</th>
+            <th>Обновлен</th>
         </tr>
         @foreach($users as $user)
-        <tr class="users_table_body" onclick="clickOnUser({{$user["id"]}})">
-            <td>
-                <label for="subscribeNews"></label><input type="checkbox" id="subscribeNews" name="subscribe"
-                                                          value="newsletter">
-            </td>
-            <td>{{$user["id"]}}</td>
-            <td>{{$user["login"]}}</td>
-            <td>{{$user["email"]}}</td>
-            <td>{{$user["password"]}}</td>
-        </tr>
+            <tr class="users_table_body" onclick="clickOnUser({{$user->id}})">
+                <td>
+                    <label for="subscribeNews"></label><input type="checkbox" id="subscribeNews" name="subscribe"
+                                                              value="newsletter">
+                </td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->created_at}}</td>
+                <td>{{$user->updated_at}}</td>
+            </tr>
         @endforeach
     </table>
-
 </div>
 
 <div class="modal_dialog" id="modal_dialog" style="display:none;">
@@ -49,7 +50,4 @@
         <div id="user_form"></div>
 
     </div>
-
-
-
 </div>

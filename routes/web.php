@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PolyclinicsInfoController;
+use App\Http\Controllers\UserInfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Руты используемые пользователями
+ */
+
 Route::get('/', function () {
     return view('home');
 });
@@ -25,8 +31,32 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
+Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class,'getPolyclinics'])
     ->name('polyclinics');
 
-require __DIR__.'/auth.php';
+Route::get('/appointment', function () {
+    return view('appointment');
+});
 
+/**
+ * Руты используемые работниками
+ * TODO использовать в будущем /admin не рекомендуется
+ */
+//TODO добавить проверку на авторизацию и роль выше рользователя
+Route::get('/admin', function () {
+    return view('admin.admin_panel');
+})/*->middleware('auth')*/;
+
+Route::post('/admin/user_list', [UserInfoController::class,'getUsersList']);
+
+Route::post('/admin/user/{id}', [UserInfoController::class,'getUserForm']);
+
+Route::post('/admin/user_update', [UserInfoController::class,'updateUser']);
+
+Route::post('/admin/add_user_from', function (){
+    return view("admin.admin_panel_add_user_form");
+});
+
+Route::get('/test', [UserInfoController::class,'getUsersList']);
+
+require __DIR__.'/auth.php';

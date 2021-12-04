@@ -27,7 +27,8 @@ function queryPostRequest(url, parameters, successFunction) {
         $.ajax({
             url: url,
             method: "POST",
-            data: JSON.stringify(parameters),
+            data: {'data': JSON.stringify(parameters)},
+            dataType: "html",
             success: function (data) {
                 successFunction(data)
             }
@@ -41,9 +42,11 @@ function queryPostRequest(url, parameters, successFunction) {
  */
 function loadUserInfoFormPage(id) {
     document.getElementById("user_form").innerHTML = ""
-    queryPostRequest("admin_panel_user_info_form/" + id, {}, function (data) {
-        document.getElementById("user_form").innerHTML = data
-        applyUserInfoForm()
+    queryPostRequest("admin/user/" + id, {}, function (data) {
+        document.getElementById("user_form").innerHTML = data;
+        document.getElementById("update_form_button").onclick = function (event) {
+            updateUser();
+        };
     })
 }
 
@@ -51,7 +54,7 @@ function loadUserInfoFormPage(id) {
  * загрузить страницу со списком юзеров
  */
 function loadUsersListPage() {
-    queryPostRequest("admin_panel_user_list", {}, function (data) {
+    queryPostRequest("admin/user_list", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список пользователей"
@@ -61,7 +64,7 @@ function loadUsersListPage() {
  * загрузить страницу с формой для добавления юзера
  */
 function loadAddUserPage() {
-    queryPostRequest("admin_panel_add_user_from",{}, function (data) {
+    queryPostRequest("admin/add_user_from", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Добавление пльзователя"
@@ -81,12 +84,10 @@ window.onload = function () {
 
     document.getElementById("get_users_button").onclick = function (event) {
         loadUsersListPage()
-        return false
     }
 
     document.getElementById("add_user_button").onclick = function (event) {
         loadAddUserPage()
-        return false
     };
 }
 
@@ -119,10 +120,10 @@ function clickOnUser(userId) {
  */
 function updateUser() {
 
-    queryPostRequest("admin_panel_update_user",
+    queryPostRequest("/admin/user_update",
         {
             id: document.getElementById('update_form_id').value,
-            login: document.getElementById('update_form_login').value,
+            name: document.getElementById('update_form_login').value,
             email: document.getElementById('update_form_email').value,
             role: document.getElementById('update_form_selected').value,
             password: document.getElementById('update_form_password').value
@@ -132,25 +133,3 @@ function updateUser() {
         })
 }
 
-/**
- * Обновляет логику нажатия на кнопку в форме при загрузке форму
- */
-function applyUserInfoForm() {
-
-    var form = document.getElementById('update_from');
-    if (form.attachEvent) {
-        form.attachEvent("submit", processForm);
-    } else {
-        form.addEventListener("submit", processForm);
-    }
-}
-
-/**
- * Логика нажатия на кнопку в форме
- * @param e элемент
- */
-function processForm(e) {
-    if (e.preventDefault) e.preventDefault();
-    updateUser()
-    return false;
-}
