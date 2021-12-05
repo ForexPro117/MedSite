@@ -75,4 +75,14 @@
             <li class="udm_item" href="#">Симонихинская больница филиал ФБУЗ ПОМЦ ФМБА России, Сарапул</li>
         </ul>
     </div>
+    <script>
+            window.onscroll = function() {
+                const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                if(scrolled !== 0){
+                    document.querySelector('header').style.background = 'rgba(61, 126, 224, 0.95)';
+                }else{
+                    document.querySelector('header').style.background = 'rgba(61, 126, 224, 0)';
+                }
+            };
+    </script>
 @endsection

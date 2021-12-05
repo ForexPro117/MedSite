@@ -91,11 +91,12 @@ header {
 
 .doctor_card .details:hover {
     -webkit-transform: scale(1.03);
-    background: #FFAA47;
+    background: #fdd099;
 }
 
 .documents p {
     font-weight: 500;
+    margin-bottom: 0;
 }
 
 .documents p span {
@@ -108,10 +109,36 @@ header {
 }
 
 .history-box {
-    background: #f6bf7f;
+    background: #ffffff;
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+.history-item {
+    border: none;
+    background: #7f97f6;
+    border-radius: 25px;
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    justify-content: space-between;
 }
 
 .title-sett {
     display: flex;
     flex-flow: row;
+}
+
+.same-doctor {
+    border: none;
+    border-radius: 25px;
+    background: #50ec97;
+    max-width: 150px;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.same-doctor:hover {
+    transform: scale(1.02);
 }

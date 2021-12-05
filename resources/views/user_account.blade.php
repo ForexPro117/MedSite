@@ -33,10 +33,18 @@
             </div>
 
 
-            <div class="curren-box history-box">
+            <div class="history-box">
                 <h3>История записей</h3>
                     <div class="history-item">
-
+                        <div class="date">
+                            <p>Дата: <span>21.12.2020</span></p>
+                            <p>Время: <span>12:20</span></p>
+                        </div>
+                        <div class="doctor">
+                            <p class="spec">терапевт</p>
+                            <p class="doctor-name">Иванов И. И.</p>
+                        </div>
+                        <button class="same-doctor">Записаться к этому специалисту</button>
                     </div>
             </div>
         </div>
