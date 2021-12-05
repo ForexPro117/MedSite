@@ -1,0 +1,117 @@
+header {
+    background: rgba(61, 126, 224, 0.95) !important;
+}
+
+.content {
+    margin-top: 100px;
+}
+
+.content h3 {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.curren-box {
+    max-width: 700px;
+    border-radius: 25px;
+    border: none;
+    background: #50ec97;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.current {
+    display: inline-flex;
+}
+
+.text-details {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.text-details .city, .address, .phone, .time {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.text-details span {
+    font-weight: normal;
+}
+
+.doctor_card {
+    display: flex;
+    flex-flow: column;
+    border: none;
+    width: 242px;
+    height: 242px;
+    background: rgba(88, 139, 237, 0.7);
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.doctor_card .avatar {
+    height: 120px;
+    width: 120px;
+    border: none;
+    border-radius: 50%;
+    background-image: url("../storage/person.jpg");
+    background-size: cover;
+    margin: auto auto 5px;
+}
+
+
+.doctor_card .name {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0;
+}
+
+.doctor_card .spec {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+
+.doctor_card .details {
+    margin: auto;
+    width: 102px;
+    height: 28px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    border: none;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.doctor_card .details:hover {
+    -webkit-transform: scale(1.03);
+    background: #FFAA47;
+}
+
+.documents p {
+    font-weight: 500;
+}
+
+.documents p span {
+    font-weight: 400;
+}
+
+.person-box {
+    background: #8295f8;
+    margin-left: 20px;
+}
+
+.history-box {
+    background: #f6bf7f;
+}
+
+.title-sett {
+    display: flex;
+    flex-flow: row;
+}

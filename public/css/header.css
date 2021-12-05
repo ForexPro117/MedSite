@@ -50,6 +50,14 @@ header {
     -webkit-transform: scale(1.05);
 }
 
+.user-name {
+
+}
+
+.user-name:hover {
+    text-decoration: underline;
+}
+
 .button_login {
     border: none;
     margin: auto 0 auto 10px;

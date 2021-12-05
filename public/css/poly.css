@@ -90,6 +90,7 @@
 }
 
 .grid_item .text_about_title {
+    margin-top: 20px;
     text-align: center;
     padding: 3px;
 }

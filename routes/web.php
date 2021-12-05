@@ -25,6 +25,10 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
+Route::get('/user_account', function () {
+    return view('user_account');
+});
+
 Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
     ->name('polyclinics');
 
