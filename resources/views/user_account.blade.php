@@ -19,7 +19,7 @@
                             <div class="avatar"></div>
                             <p class="name">Иванов Иван Иванович</p>
                             <p class="spec">терапевт</p>
-                            <button class="details">Подробнее</button>
+                            <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,52 @@
+.content {
+    margin-top: 100px;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.content h4 {
+    font-size: 32px;
+}
+
+.doctor_name {
+    font-weight: 500;
+    color: black;
+}
+
+.content p {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.content span {
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.photo {
+    width: 290px;
+    height: 290px;
+    border: 2px solid #c7c7c7;
+    border-radius: 50%;
+    background-image: url("../storage/photo.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: auto auto 20px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+.available_days {
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+}
+
+.available_days p {
+    font-weight: 400;
+}
+
+
