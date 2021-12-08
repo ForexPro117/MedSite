@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class EmployeeInfoController extends Controller
 {
+
+    public function create()
+    {
+        return view("admin.admin_panel_add_empl_form");
+    }
 
     /**
      * Возвращает список сотрудников
@@ -28,17 +32,31 @@ class EmployeeInfoController extends Controller
         return view("admin.admin_panel_empl_info_form", ['user' => User::find($id)]);
     }
 
+    /**
+     * Создает в базе данных нового сотрудника
+     */
     public function addEmployee()
     {
         $data=json_decode($_POST['data']);
         dd($data);
 
+        $request->validate([
+            'login' => ['required','unique:users','string', 'max:90'],
+            'email' => ['nullable','string', 'email', 'max:100'],
+            'password' => ['required', 'min:8','confirmed','max:90'],
+        ]);
+
+       /* User::create([
+            'login' => $request->login,
+            'email' => $request->email,
+            'role'=>$request->role,
+            'password' => Hash::make($request->password),
+        ]);*/
+
 
         return view("admin.admin_panel_empl_list",
             ['users' => User::where('role', '!=', 'user')->get()]);
     }
-
-
 
 
     /**

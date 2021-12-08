@@ -3,7 +3,7 @@
  * @param url пусть
  * @param successFunction колбек при успешном получении ответа
  */
-function queryGetPage(url, successFunction) {
+function queryGetRequest(url, successFunction) {
     $(document).ready(function () {
         $.ajax({
             url: url,
@@ -55,27 +55,6 @@ function loadEmployeesListPage() {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список сотрудников";
-}
-
-/**
- * загрузить страницу с формой для добавления юзера
- */
-function loadAddUserPage() {
-    queryPostRequest("/admin/user/add-form/", {}, function (data) {
-        document.getElementById("action_window").innerHTML = data
-    })
-    document.getElementById("text").innerText = "Добавление пользователя";
-}
-
-
-/**
- * загрузить страницу с формой для добавления сотрудника
- */
-function loadAddEmployeePage() {
-    queryPostRequest("/admin/employee/add-form/", {}, function (data) {
-        document.getElementById("action_window").innerHTML = data
-    })
-    document.getElementById("text").innerText = "Добавление сотрудника";
 }
 
 /**
@@ -177,19 +156,41 @@ function updateEmployee() {
 }
 
 /**
+ * загрузить страницу с формой для добавления юзера
+ */
+function loadAddUserPage() {
+    queryGetRequest("/admin/user/add-form/", function (data) {
+        document.getElementById("action_window").innerHTML = data;
+        document.getElementById("addBtn").onclick = () =>addUser();
+    });
+    document.getElementById("text").innerText = "Добавление пользователя";
+
+}
+
+
+/**
+ * загрузить страницу с формой для добавления сотрудника
+ */
+function loadAddEmployeePage() {
+    queryGetRequest("/admin/employee/add-form/", function (data) {
+        document.getElementById("action_window").innerHTML = data;
+        document.getElementById("addBtn").onclick = () => addEmployee();
+    });
+    document.getElementById("text").innerText = "Добавление сотрудника";
+}
+
+/**
  * Добавляет пользователя в базу данных
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
 function addUser() {
 
-    queryPostRequest("/admin/user_update",
+    queryPostRequest("/admin/user/add-form",
         {
-            id: document.getElementById('update_form_id').value,
-            name: document.getElementById('update_form_name').value,
-            email: document.getElementById('update_form_email').value,
-            password: document.getElementById('update_form_password').value
+            name: document.getElementById('addForm_name').value,
+            email: document.getElementById('addForm_email').value,
+            password: document.getElementById('addForm_password').value
         }, function (data) {
-            closeModalDialog()
             document.getElementById("action_window").innerHTML = data;
         })
 }
@@ -200,15 +201,14 @@ function addUser() {
  */
 function addEmployee() {
 
-    queryPostRequest("/admin/employee_update",
+    queryPostRequest("admin/employee/add-form",
         {
-            id: document.getElementById('update_form_id').value,
-            login: document.getElementById('update_form_login').value,
-            email: document.getElementById('update_form_email').value,
-            role: document.getElementById('update_form_selected').value,
-            password: document.getElementById('update_form_password').value
+            login: document.getElementById('addForm_login').value,
+            email: document.getElementById('addForm_email').value,
+            role: document.getElementById('addForm_selected').value,
+            password: document.getElementById('addForm_password').value,
+            password_confirmation: document.getElementById('addForm_password_confirmation').value
         }, function (data) {
-            closeModalDialog()
             document.getElementById("action_window").innerHTML = data;
         })
 }
