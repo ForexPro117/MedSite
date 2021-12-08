@@ -14,11 +14,15 @@
     <div class="sidenav" id="mySidenav">
         <div class="sidenav_header"></div>
         <div class="sidenav_main_block">
-            <div class="sidenav_item" id="get_users_button">
+            <div class="sidenav_item" onclick="loadUsersListPage()">
                 <input type="image" class="logo_img" src="storage/users_icon.png" alt="">
                 Список пользователей
             </div>
-            <div class="sidenav_item" id="add_user_button">
+            <div class="sidenav_item" onclick="loadEmployeesListPage()">
+                <input type="image" class="logo_img" src="storage/users_icon.png" alt="">
+                Список сотрудников
+            </div>
+            <div class="sidenav_item" onclick="loadAddUserPage()">
                 <input type="image" class="logo_img" src="storage/add_new_user_icon.png" alt="">
                 Добавить пользователя
             </div>

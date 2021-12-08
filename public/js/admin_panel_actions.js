@@ -37,17 +37,19 @@ function queryPostRequest(url, parameters, successFunction) {
 }
 
 /**
- * загрузить форму с информацией по юзеру
+ * загрузить форму с информацией по пользователю
  * @param id Int айди юзера
+ * @param url String адресс по какому руту искать пользователя
  */
-function loadUserInfoFormPage(id) {
+function loadUserInfoFormPage(id,url) {
     document.getElementById("user_form").innerHTML = ""
-    queryPostRequest("admin/user/" + id, {}, function (data) {
+    queryPostRequest(url + id, {}, function (data) {
         document.getElementById("user_form").innerHTML = data;
         document.getElementById("update_form_button").onclick = function (event) {
             updateUser();
         };
-    })
+    });
+
 }
 
 /**
@@ -57,9 +59,18 @@ function loadUsersListPage() {
     queryPostRequest("admin/user_list", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
-    document.getElementById("text").innerText = "Список пользователей"
+    document.getElementById("text").innerText = "Список пользователей";
 }
 
+/**
+ * загрузить страницу со списком сотрудников
+ */
+function loadEmployeesListPage() {
+    queryPostRequest("admin/employee_list", {}, function (data) {
+        document.getElementById("action_window").innerHTML = data
+    })
+    document.getElementById("text").innerText = "Список сотрудников";
+}
 /**
  * загрузить страницу с формой для добавления юзера
  */
@@ -67,7 +78,7 @@ function loadAddUserPage() {
     queryPostRequest("admin/add_user_from", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
-    document.getElementById("text").innerText = "Добавление пльзователя"
+    document.getElementById("text").innerText = "Добавление пльзователя";
 }
 
 /**
@@ -82,54 +93,80 @@ window.onload = function () {
 
     loadUsersListPage()
 
-    document.getElementById("get_users_button").onclick = function (event) {
-        loadUsersListPage()
-    }
+  /*  document.getElementById("get_users_button").onclick = function (event) {
+        loadUsersListPage();
+    };
 
     document.getElementById("add_user_button").onclick = function (event) {
-        loadAddUserPage()
-    };
+        loadAddUserPage();
+    };*/
 }
 
 /**
  * Закрыть модальное окно
  */
 function closeModalDialog() {
-    document.getElementById("modal_dialog").style.display = 'none'
+    document.getElementById("modal_dialog").style.display = 'none';
 }
 
 /**
  * Показать модальное окно
  */
 function showModalDialog() {
-    document.getElementById("modal_dialog").style.display = 'block'
+    document.getElementById("modal_dialog").style.display = 'block';
 }
 
 /**
- * Обработчик при нажатии на юзера с таблице со списокм юзеров
+ * Обработчик при нажатии на юзера в таблице со списоком юзеров
  * @param userId Int айди юзера
  */
 function clickOnUser(userId) {
-    showModalDialog()
-    loadUserInfoFormPage(userId)
+    showModalDialog();
+    loadUserInfoFormPage(userId,"admin/user/");
+}
+
+/**
+ * Обработчик при нажатии на сотрудника в таблице со списоком сотрудников
+ * @param userId Int айди юзера
+ */
+function clickOnEmployee(userId) {
+    showModalDialog();
+    loadUserInfoFormPage(userId,"admin/employee/");
 }
 
 /**
  * Обновить юзера
- * [!] данные берутся из формы, вызывается при нажатии на кнопку submit
+ * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
 function updateUser() {
 
     queryPostRequest("/admin/user_update",
         {
             id: document.getElementById('update_form_id').value,
-            name: document.getElementById('update_form_login').value,
+            name: document.getElementById('update_form_name').value,
+            email: document.getElementById('update_form_email').value,
+            password: document.getElementById('update_form_password').value
+        }, function (data) {
+            closeModalDialog()
+            document.getElementById("action_window").innerHTML = data;
+        })
+}
+
+/**
+ * Обновить сотрудника
+ * [!] данные берутся из формы, вызывается при нажатии на кнопку
+ */
+function updateEmployee() {
+
+    queryPostRequest("/admin/user_update",
+        {
+            id: document.getElementById('update_form_id').value,
+            login: document.getElementById('update_form_login').value,
             email: document.getElementById('update_form_email').value,
             role: document.getElementById('update_form_selected').value,
             password: document.getElementById('update_form_password').value
         }, function (data) {
             closeModalDialog()
-            document.getElementById("action_window").innerHTML = data
+            document.getElementById("action_window").innerHTML = data;
         })
 }
-

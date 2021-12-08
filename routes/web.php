@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeInfoController;
 use App\Http\Controllers\PolyclinicsInfoController;
 use App\Http\Controllers\UserInfoController;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +43,7 @@ Route::get('/appointment', function () {
  * Руты используемые работниками
  * TODO использовать в будущем /admin не рекомендуется
  */
-//TODO добавить проверку на авторизацию и роль выше рользователя
+//TODO добавить проверку на авторизацию и роль выше пользователя
 Route::get('/admin', function () {
     return view('admin.admin_panel');
 })/*->middleware('auth')*/;
@@ -57,6 +58,13 @@ Route::post('/admin/add_user_from', function (){
     return view("admin.admin_panel_add_user_form");
 });
 
-Route::get('/test', [UserInfoController::class,'getUsersList']);
+Route::post('/admin/employee_list', [EmployeeInfoController::class,'getEmployeesList']);
+
+Route::post('/admin/employee/{id}', [EmployeeInfoController::class,'getEmployeeForm']);
+
+Route::post('/admin/employee_update', [EmployeeInfoController::class,'updateEmployee']);
+
+
+
 
 require __DIR__.'/auth.php';
