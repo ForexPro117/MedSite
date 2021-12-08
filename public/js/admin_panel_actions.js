@@ -161,7 +161,7 @@ function updateEmployee() {
 function loadAddUserPage() {
     queryGetRequest("/admin/user/add-form/", function (data) {
         document.getElementById("action_window").innerHTML = data;
-        document.getElementById("addBtn").onclick = () =>addUser();
+       /* document.getElementById("addBtn").onclick = () =>addUser();*/
     });
     document.getElementById("text").innerText = "Добавление пользователя";
 
@@ -174,7 +174,7 @@ function loadAddUserPage() {
 function loadAddEmployeePage() {
     queryGetRequest("/admin/employee/add-form/", function (data) {
         document.getElementById("action_window").innerHTML = data;
-        document.getElementById("addBtn").onclick = () => addEmployee();
+        /*document.getElementById("addBtn").onclick = () => addEmployee();*/
     });
     document.getElementById("text").innerText = "Добавление сотрудника";
 }
@@ -183,7 +183,7 @@ function loadAddEmployeePage() {
  * Добавляет пользователя в базу данных
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
-function addUser() {
+/*function addUser() {
 
     queryPostRequest("/admin/user/add-form",
         {
@@ -192,14 +192,15 @@ function addUser() {
             password: document.getElementById('addForm_password').value
         }, function (data) {
             document.getElementById("action_window").innerHTML = data;
+            document.getElementById("text").innerText = "Список пользователей";
         })
-}
+}*/
 
 /**
  * Добавляет сотрудника в базу данных
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
-function addEmployee() {
+/*function addEmployee() {
 
     queryPostRequest("admin/employee/add-form",
         {
@@ -210,5 +211,6 @@ function addEmployee() {
             password_confirmation: document.getElementById('addForm_password_confirmation').value
         }, function (data) {
             document.getElementById("action_window").innerHTML = data;
+            document.getElementById("text").innerText = "Список сотрудников";
         })
-}
+}*/

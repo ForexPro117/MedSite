@@ -7,35 +7,42 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
 <header class="header">
     Авторизация
 </header>
-<div>
-
-    <form action="/login/admin" method="post" class="login_form">
-
-        <div class="login_form_title">Логин или Email</div>
-        <label class="login_form_input">
-            <input type="text" name="userId" class="login_form_input"/>
-        </label>
-        <div class="text_error">Неверный логин</div>
-
-        <div class="login_form_title"> Пароль</div>
-        <label class="login_form_input">
-            <input type="password" name="password" class="card-text"/>
-        </label>
-        <div class="text_error">Неверный пароль</div>
-
-        <div>
-            <label><input type="submit" value="Войти" class="btn btn-primary submit"/></label>
-            <div><a href="/reg" id="subCommand">Регистрация</a></div>
+<main>
+    <form method="POST" action="{{ route('loginAdmin') }}" class="container mt-4">
+        @csrf
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="text_error"> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <div class="mb-3">
+            <label for="Email" class="form-label fw-bolder">Логин</label>
+            <input type="text" class="form-control" name="login"
+                   placeholder="Ваш логин">
         </div>
-        <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
+        <div class="mb-3">
+            <label for="Password" class="form-label fw-bolder">Пароль</label>
+            <input type="password" autocomplete="on" class="form-control" name="password"
+                   placeholder="Ваш пароль">
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="remember">
+            <label class="form-check-label" >
+                Запомнить меня
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
     </form>
 
-</div>
+</main>
 </body>
 </html>

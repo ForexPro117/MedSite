@@ -37,10 +37,10 @@ class EmployeeInfoController extends Controller
      */
     public function addEmployee()
     {
-        $data=json_decode($_POST['data']);
-        dd($data);
 
-        $request->validate([
+
+        dd(request());
+        request()->validate([
             'login' => ['required','unique:users','string', 'max:90'],
             'email' => ['nullable','string', 'email', 'max:100'],
             'password' => ['required', 'min:8','confirmed','max:90'],

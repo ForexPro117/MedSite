@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserInfoController extends Controller
@@ -37,12 +38,10 @@ class UserInfoController extends Controller
      */
     public function addUser()
     {
-        $data = json_decode($_POST['data']);
-        dd($data);
 
-        $request->validate([
+        request()->validate([
             'name' => ['required', 'string', 'max:90'],
-            'email' => ['nullable','string', 'email', 'max:100'],
+            'email'=> ['nullable','string', 'email', 'max:100'],
             'password' => ['required', 'min:8', 'max:90'],
         ]);
 

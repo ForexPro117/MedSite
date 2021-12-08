@@ -46,7 +46,8 @@ Route::get('/appointment', function () {
 //TODO добавить проверку на авторизацию и роль выше пользователя
 Route::get('/admin', function () {
     return view('admin.admin_panel');
-})/*->middleware('auth')*/
+})->name('admin')
+    /*->middleware('auth')*/
 ;
 
 Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList']);
@@ -68,7 +69,8 @@ Route::post('/admin/employee/list', [EmployeeInfoController::class, 'getEmployee
 
 Route::get('/admin/employee/add-form',[EmployeeInfoController::class, 'create']);
 
-Route::post('/admin/employee/add-form',[EmployeeInfoController::class, 'addEmployee']);
+Route::post('/admin/employee/add-form',[EmployeeInfoController::class, 'addEmployee'])
+->name('asas');
 
 Route::post('/admin/employee/add', [EmployeeInfoController::class, 'addEmployee']);
 

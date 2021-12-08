@@ -1,5 +1,14 @@
-<form  class="add_user_from">
-
+<form method="post" action="/admin/employee/add-form" class="add_user_from">
+    @csrf
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="login_form_title">Логин</div>
     <label>
         <input type="text" name="login" id="addForm_login" placeholder="Введите логин" class="login_form_input"/>
@@ -15,7 +24,7 @@
     <div class="login_form_title">Роль</div>
     <label>
 
-        <select class="login_form_input" id="addForm_selected">
+        <select class="login_form_input" name="role" id="addForm_selected">
             <option selected="selected" value="registration">registration</option>
             <option value="doctor">doctor</option>
             <option value="admin">admin</option>
@@ -38,7 +47,7 @@
 
 
     <div>
-        <label><input type="button" id="addBtn" value="Добавить пользователя" class="add_user_button"/></label>
+        <label><input type="submit"  value="Добавить пользователя" class="add_user_button"/></label>
     </div>
 </form>
 
