@@ -32,7 +32,7 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class,'getPolyclinics'])
+Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
     ->name('polyclinics');
 
 Route::get('/appointment', function () {
@@ -46,25 +46,35 @@ Route::get('/appointment', function () {
 //TODO добавить проверку на авторизацию и роль выше пользователя
 Route::get('/admin', function () {
     return view('admin.admin_panel');
-})/*->middleware('auth')*/;
+})/*->middleware('auth')*/
+;
 
-Route::post('/admin/user_list', [UserInfoController::class,'getUsersList']);
+Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList']);
 
-Route::post('/admin/user/{id}', [UserInfoController::class,'getUserForm']);
-
-Route::post('/admin/user_update', [UserInfoController::class,'updateUser']);
-
-Route::post('/admin/add_user_from', function (){
+Route::post('/admin/user/add-form', function () {
     return view("admin.admin_panel_add_user_form");
 });
 
-Route::post('/admin/employee_list', [EmployeeInfoController::class,'getEmployeesList']);
+Route::post('/admin/user/add', [UserInfoController::class, 'addUser']);
 
-Route::post('/admin/employee/{id}', [EmployeeInfoController::class,'getEmployeeForm']);
+Route::post('/admin/user/update', [UserInfoController::class, 'updateUser']);
 
-Route::post('/admin/employee_update', [EmployeeInfoController::class,'updateEmployee']);
-
-
+Route::post('/admin/user/{id}', [UserInfoController::class, 'getUserForm']);
 
 
-require __DIR__.'/auth.php';
+
+
+Route::post('/admin/employee/list', [EmployeeInfoController::class, 'getEmployeesList']);
+
+Route::post('/admin/employee/add-form', function () {
+    return view("admin.admin_panel_add_empl_form");
+});
+
+Route::post('/admin/employee/add', [EmployeeInfoController::class, 'addEmployee']);
+
+Route::post('/admin/employee/update', [EmployeeInfoController::class, 'updateEmployee']);
+
+Route::post('/admin/employee/{id}', [EmployeeInfoController::class, 'getEmployeeForm']);
+
+
+require __DIR__ . '/auth.php';

@@ -27,6 +27,19 @@ class UserInfoController extends Controller
     }
 
     /**
+     * Создает в базе данных нового пользователя
+     */
+    public function addUser()
+    {
+        $data=json_decode($_POST['data']);
+        dd($data);
+
+        return view("admin.admin_panel_empl_list",
+            ['users' => User::where('role', '!=', 'user')->get()]);
+    }
+
+
+    /**
      * Обновляет данные пользователя и возвращает обновленную таблицу
      * TODO добавить валидацию на входящие данные
      */

@@ -18,6 +18,7 @@
                 <input type="image" class="logo_img" src="storage/users_icon.png" alt="">
                 Список пользователей
             </div>
+            {{--TODO список сотрудников должен быть доступен только админам--}}
             <div class="sidenav_item" onclick="loadEmployeesListPage()">
                 <input type="image" class="logo_img" src="storage/users_icon.png" alt="">
                 Список сотрудников
@@ -25,6 +26,10 @@
             <div class="sidenav_item" onclick="loadAddUserPage()">
                 <input type="image" class="logo_img" src="storage/add_new_user_icon.png" alt="">
                 Добавить пользователя
+            </div>
+            <div class="sidenav_item" onclick="loadAddEmployeePage()">
+                <input type="image" class="logo_img" src="storage/add_new_user_icon.png" alt="">
+                Добавить сотрудника
             </div>
         </div>
     </div>

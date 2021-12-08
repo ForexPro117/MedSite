@@ -12,23 +12,11 @@
     </label>
     <div class="login_form_space"></div>
 
-    <div class="login_form_title">Почта</div>
+    <div class="login_form_title">Email</div>
     <label>
         <input type="email" name="email" value="{{$user->email}}" class="card-text" id="update_form_email"/>
     </label>
     <div class="login_form_space"></div>
-
-    {{--<div class="login_form_title">Роль</div>
-    <label>
-
-        <select class="login_form_input" id="update_form_selected">
-            <option selected="selected">user</option>
-            <option value="ADMIN">ADMIN</option>
-            <option value="LOX">LOX</option>
-        </select>
-
-    </label>
-    <div class="login_form_space"></div>--}}
 
     <div class="login_form_title">Пароль</div>
     <label>

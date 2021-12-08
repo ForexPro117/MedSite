@@ -28,8 +28,22 @@ class EmployeeInfoController extends Controller
         return view("admin.admin_panel_empl_info_form", ['user' => User::find($id)]);
     }
 
+    public function addEmployee()
+    {
+        $data=json_decode($_POST['data']);
+        dd($data);
+
+
+        return view("admin.admin_panel_empl_list",
+            ['users' => User::where('role', '!=', 'user')->get()]);
+    }
+
+
+
+
     /**
      * Обновляет данные сотрудника и возвращает обновленную таблицу
+     * TODO добавить валидацию на входящие данные
      */
     public function updateEmployee()
     {

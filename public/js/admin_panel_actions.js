@@ -41,7 +41,7 @@ function queryPostRequest(url, parameters, successFunction) {
  * загрузить страницу со списком юзеров
  */
 function loadUsersListPage() {
-    queryPostRequest("admin/user_list", {}, function (data) {
+    queryPostRequest("admin/user/list", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список пользователей";
@@ -51,7 +51,7 @@ function loadUsersListPage() {
  * загрузить страницу со списком сотрудников
  */
 function loadEmployeesListPage() {
-    queryPostRequest("admin/employee_list", {}, function (data) {
+    queryPostRequest("admin/employee/list", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список сотрудников";
@@ -61,10 +61,21 @@ function loadEmployeesListPage() {
  * загрузить страницу с формой для добавления юзера
  */
 function loadAddUserPage() {
-    queryPostRequest("admin/add_user_from", {}, function (data) {
+    queryPostRequest("/admin/user/add-form/", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
-    document.getElementById("text").innerText = "Добавление пльзователя";
+    document.getElementById("text").innerText = "Добавление пользователя";
+}
+
+
+/**
+ * загрузить страницу с формой для добавления сотрудника
+ */
+function loadAddEmployeePage() {
+    queryPostRequest("/admin/employee/add-form/", {}, function (data) {
+        document.getElementById("action_window").innerHTML = data
+    })
+    document.getElementById("text").innerText = "Добавление сотрудника";
 }
 
 /**
@@ -76,16 +87,7 @@ window.onload = function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
-    loadUsersListPage()
-
-    /*  document.getElementById("get_users_button").onclick = function (event) {
-          loadUsersListPage();
-      };
-
-      document.getElementById("add_user_button").onclick = function (event) {
-          loadAddUserPage();
-      };*/
+    loadUsersListPage();
 }
 
 /**
@@ -160,6 +162,43 @@ function updateUser() {
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
 function updateEmployee() {
+
+    queryPostRequest("/admin/employee_update",
+        {
+            id: document.getElementById('update_form_id').value,
+            login: document.getElementById('update_form_login').value,
+            email: document.getElementById('update_form_email').value,
+            role: document.getElementById('update_form_selected').value,
+            password: document.getElementById('update_form_password').value
+        }, function (data) {
+            closeModalDialog()
+            document.getElementById("action_window").innerHTML = data;
+        })
+}
+
+/**
+ * Добавляет пользователя в базу данных
+ * [!] данные берутся из формы, вызывается при нажатии на кнопку
+ */
+function addUser() {
+
+    queryPostRequest("/admin/user_update",
+        {
+            id: document.getElementById('update_form_id').value,
+            name: document.getElementById('update_form_name').value,
+            email: document.getElementById('update_form_email').value,
+            password: document.getElementById('update_form_password').value
+        }, function (data) {
+            closeModalDialog()
+            document.getElementById("action_window").innerHTML = data;
+        })
+}
+
+/**
+ * Добавляет сотрудника в базу данных
+ * [!] данные берутся из формы, вызывается при нажатии на кнопку
+ */
+function addEmployee() {
 
     queryPostRequest("/admin/employee_update",
         {

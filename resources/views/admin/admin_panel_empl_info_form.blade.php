@@ -12,8 +12,8 @@
     </label>
     <div class="login_form_space"></div>
 
-    <div class="login_form_title">Почта</div>
-    <label >
+    <div class="login_form_title">Email</div>
+    <label>
         <input type="email" name="email" value="{{$user->email}}" class="card-text" id="update_form_email"/>
     </label>
     <div class="login_form_space"></div>
@@ -30,12 +30,11 @@
     </label>
     <div class="login_form_space"></div>
     <div class="login_form_title">Пароль</div>
-    <label >
+    <label>
         <input type="text" name="password" placeholder="Введите новый пароль"
                class="card-text" id="update_form_password"/>
     </label>
     <div class="login_form_space"></div>
-
     <div>
         <input type="button" value="Обновить" class="add_user_button" id="update_form_button"/>
     </div>
