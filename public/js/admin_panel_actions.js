@@ -36,21 +36,6 @@ function queryPostRequest(url, parameters, successFunction) {
     });
 }
 
-/**
- * загрузить форму с информацией по пользователю
- * @param id Int айди юзера
- * @param url String адресс по какому руту искать пользователя
- */
-function loadUserInfoFormPage(id,url) {
-    document.getElementById("user_form").innerHTML = ""
-    queryPostRequest(url + id, {}, function (data) {
-        document.getElementById("user_form").innerHTML = data;
-        document.getElementById("update_form_button").onclick = function (event) {
-            updateUser();
-        };
-    });
-
-}
 
 /**
  * загрузить страницу со списком юзеров
@@ -71,6 +56,7 @@ function loadEmployeesListPage() {
     })
     document.getElementById("text").innerText = "Список сотрудников";
 }
+
 /**
  * загрузить страницу с формой для добавления юзера
  */
@@ -93,13 +79,13 @@ window.onload = function () {
 
     loadUsersListPage()
 
-  /*  document.getElementById("get_users_button").onclick = function (event) {
-        loadUsersListPage();
-    };
+    /*  document.getElementById("get_users_button").onclick = function (event) {
+          loadUsersListPage();
+      };
 
-    document.getElementById("add_user_button").onclick = function (event) {
-        loadAddUserPage();
-    };*/
+      document.getElementById("add_user_button").onclick = function (event) {
+          loadAddUserPage();
+      };*/
 }
 
 /**
@@ -122,7 +108,7 @@ function showModalDialog() {
  */
 function clickOnUser(userId) {
     showModalDialog();
-    loadUserInfoFormPage(userId,"admin/user/");
+    loadUserInfoFormPage(userId, "admin/user");
 }
 
 /**
@@ -131,8 +117,25 @@ function clickOnUser(userId) {
  */
 function clickOnEmployee(userId) {
     showModalDialog();
-    loadUserInfoFormPage(userId,"admin/employee/");
+    loadUserInfoFormPage(userId, "admin/employee");
 }
+
+/**
+ * загрузить форму с информацией по пользователю
+ * @param id Int айди юзера
+ * @param url String адресс по какому руту искать пользователя
+ */
+function loadUserInfoFormPage(id, url) {
+    document.getElementById("user_form").innerHTML = ""
+    queryPostRequest(url + '/' + id, {}, function (data) {
+        document.getElementById("user_form").innerHTML = data;
+        document.getElementById("update_form_button").onclick = function (event) {
+            (url === 'admin/user') ? updateUser() : updateEmployee();
+        };
+    });
+
+}
+
 
 /**
  * Обновить юзера
@@ -158,7 +161,7 @@ function updateUser() {
  */
 function updateEmployee() {
 
-    queryPostRequest("/admin/user_update",
+    queryPostRequest("/admin/employee_update",
         {
             id: document.getElementById('update_form_id').value,
             login: document.getElementById('update_form_login').value,

@@ -28,16 +28,15 @@ class UserInfoController extends Controller
 
     /**
      * Обновляет данные пользователя и возвращает обновленную таблицу
+     * TODO добавить валидацию на входящие данные
      */
     public function updateUser()
     {
         $data=json_decode($_POST['data']);
         $user = User::find($data->id);
 
-        $user->id=$data->id;
         $user->name=$data->name;
         $user->email=$data->email;
-        $user->role=$data->role;
         $user->password=Hash::make($data->password);
         $user->save();
 

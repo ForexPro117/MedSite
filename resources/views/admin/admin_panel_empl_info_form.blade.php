@@ -1,4 +1,4 @@
-<form method="post" class="update_from" id="update_from">
+<form class="update_from" id="update_from">
 
     <div class="login_form_title">Id</div>
     <label>
@@ -22,9 +22,9 @@
     <label>
 
         <select class="login_form_input" id="update_form_selected">
-            <option selected="selected">registration</option>
-            <option value="ADMIN">doctor</option>
-            <option value="LOX">admin</option>
+            <option selected="selected" value="registration">registration</option>
+            <option value="doctor">doctor</option>
+            <option value="admin">admin</option>
         </select>
 
     </label>

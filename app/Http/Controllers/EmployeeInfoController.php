@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeInfoController extends Controller
 {
@@ -35,7 +36,6 @@ class EmployeeInfoController extends Controller
         $data = json_decode($_POST['data']);
         $user = User::find($data->id);
 
-        $user->id = $data->id;
         $user->login = $data->name;
         $user->email = $data->email;
         $user->role = $data->role;

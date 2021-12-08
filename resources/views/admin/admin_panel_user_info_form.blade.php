@@ -1,4 +1,4 @@
-<form method="post" class="update_from" id="update_from">
+<form class="update_from" id="update_from">
 
     <div class="login_form_title">Id</div>
     <label>
