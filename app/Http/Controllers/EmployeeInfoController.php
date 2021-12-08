@@ -36,7 +36,7 @@ class EmployeeInfoController extends Controller
         $data = json_decode($_POST['data']);
         $user = User::find($data->id);
 
-        $user->login = $data->name;
+        $user->login = $data->login;
         $user->email = $data->email;
         $user->role = $data->role;
         $user->password = Hash::make($data->password);
