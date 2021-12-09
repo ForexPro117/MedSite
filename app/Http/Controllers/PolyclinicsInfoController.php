@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Doctor;
 use App\Models\Hospital;
 
 
@@ -20,7 +21,7 @@ class PolyclinicsInfoController extends Controller
 
         if (request()->type)
             $polyclinics = Hospital::getPolyclinics()->where('district', $region)
-            ->where('type',request()->type);
+                ->where('type', request()->type);
         else
             $polyclinics = Hospital::getPolyclinics()->where('district', $region);
 
@@ -35,10 +36,11 @@ class PolyclinicsInfoController extends Controller
      * @param string $id - id поликлиники в базе данных
      */
     public function getAboutPage($id)
-        {
-            $polyclinic=Hospital::getPolyclinicById($id);
-            return view('polyclinic-about',['polyclinic' => $polyclinic]);
-        }
+    {
+        $polyclinic = Hospital::getPolyclinicById($id);
+        $specializations = Doctor::getDoctors()->where('id_hostpital', $id)->groupBy('specialization');
+        return view('polyclinic-about', ['polyclinic' => $polyclinic,'specializations' => $specializations]);
+    }
 
 
 }

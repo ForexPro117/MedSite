@@ -16,4 +16,15 @@ class Doctor extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Возвращает коллекцию докторов
+     */
+    public static function getDoctors()
+    {
+
+        return Doctor::leftJoin('specialization', 'id_spec', '=', 'specialization.id')
+            ->leftJoin('images', 'id_image', '=', 'images.id')
+            ->get();
+    }
 }

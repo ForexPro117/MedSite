@@ -46,6 +46,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        /**
+         * отправляет пользователю на почту ссылку для потверждения
+         * слушатель - SendEmailVerificationNotification
+         */
         event(new Registered($user));
 
         Auth::login($user);

@@ -9,15 +9,15 @@
             <img class="photo" src="{{asset($polyclinic->uri)}}">
             <p class="title">{{$polyclinic->name}}</p>
             @isset($polyclinic->phoneNumber)
-            <p class="phone-number">Номер телефона: <span>{{$polyclinic->phoneNumber}}</span></p>
+                <p class="phone-number">Номер телефона: <span>{{$polyclinic->phoneNumber}}</span></p>
             @endisset
             <p class="address">Адрес:
                 <span>{{$polyclinic->district}}, {{$polyclinic->street}}, {{$polyclinic->home}}</span></p>
             @isset($polyclinic->email)
-            <p class="email">Email: <a href="mailto:{{$polyclinic->email}}">{{$polyclinic->email}}</a></p>
+                <p class="email">Email: <a href="mailto:{{$polyclinic->email}}">{{$polyclinic->email}}</a></p>
             @endisset
             @isset($polyclinic->website)
-            <p class="site">Сайт: <a href="https://{{$polyclinic->website}}">{{$polyclinic->website}}</a></p>
+                <p class="site">Сайт: <a href="https://{{$polyclinic->website}}">{{$polyclinic->website}}</a></p>
             @endisset
             <p class="desc-title">Описание: </p>
             <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet architecto
@@ -26,54 +26,28 @@
             <h4 class="spec-title">Специалисты в данном учреждении:</h4>
             <div class="box">
                 <ul>
-                    <li><p onclick="showDoctor()" class="specialization">Терапевты</p></li>
-                    <div class="doctor-box">
-                        <div class="doctor-mini">
-                            <div class="doctor-avatar"></div>
-                            <div class="doctor-info">
-                                <a href="/doctor_about">Иванов И. И.</a>
-                                <span class="free-num">Свободных номерков: <strong>32</strong></span>
-                                <span class="cabinet">Кабинет: <strong>104</strong></span>
-                                <button onclick="" class="signup">Записаться</button>
-                            </div>
+                    @foreach($specializations as $key => $doctors)
+                        <li><p onclick="showDoctor()" class="specialization">{{$key}}</p></li>
+                        <div class="doctor-box">
+                            @foreach($doctors as $doctor)
+                                <div class="doctor-mini">
+                                    <div class="doctor-avatar"></div>
+                                    <div class="doctor-info">
+                                        <a href="/doctor_about">{{$doctor->name}}</a>
+                                        {{--TODO сюда тоже на будущее--}}
+                                        <span class="free-num">Свободных номерков: <strong>32</strong></span>
+                                        @isset($doctor->area)
+                                            <span class="cabinet">Участок: <strong>{{$doctor->area}}</strong></span>
+                                        @endisset
+                                        @isset($doctor->cabinet)
+                                            <span class="cabinet">Кабинет: <strong>{{$doctor->cabinet}}</strong></span>
+                                        @endisset
+                                        <button onclick="" class="signup">Записаться</button>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="doctor-mini">
-                            <div class="doctor-avatar"></div>
-                            <div class="doctor-info">
-                                <a href="/doctor_about">Иванов И. И.</a>
-                                <span class="free-num">Свободных номерков: <strong>32</strong></span>
-                                <span class="cabinet">Кабинет: <strong>104</strong></span>
-                                <button onclick="" class="signup">Записаться</button>
-                            </div>
-                        </div>
-                        <div class="doctor-mini">
-                            <div class="doctor-avatar"></div>
-                            <div class="doctor-info">
-                                <a href="/doctor_about">Иванов И. И.</a>
-                                <span class="free-num">Свободных номерков: <strong>32</strong></span>
-                                <span class="cabinet">Кабинет: <strong>104</strong></span>
-                                <button onclick="" class="signup">Записаться</button>
-                            </div>
-                        </div>
-                        <div class="doctor-mini">
-                            <div class="doctor-avatar"></div>
-                            <div class="doctor-info">
-                                <a href="/doctor_about">Иванов И. И.</a>
-                                <span class="free-num">Свободных номерков: <strong>32</strong></span>
-                                <span class="cabinet">Кабинет: <strong>104</strong></span>
-                                <button onclick="" class="signup">Записаться</button>
-                            </div>
-                        </div>
-                        <div class="doctor-mini">
-                            <div class="doctor-avatar"></div>
-                            <div class="doctor-info">
-                                <a href="/doctor_about">Иванов И. И.</a>
-                                <span class="free-num">Свободных номерков: <strong>32</strong></span>
-                                <span class="cabinet">Кабинет: <strong>104</strong></span>
-                                <button onclick="" class="signup">Записаться</button>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </ul>
             </div>
         </div>
