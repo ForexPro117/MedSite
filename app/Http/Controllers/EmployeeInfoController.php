@@ -50,13 +50,13 @@ class EmployeeInfoController extends Controller
         if ($validator->fails()) {
             return view("admin.admin_panel_add_empl_form")->withErrors($validator);
         }
-        User::create([
-            'login' => $data->login,
-            'email' => $data->email,
-            'password' => Hash::make($data->password),
-            'role' => $data->role //TODO БАГ роль не записывается, записывается юзер
-        ]);
 
+        $user=new User();
+        $user->login=$data->login;
+        $user->email=$data->email;
+        $user->role=$data->role;
+        $user->password=Hash::make($data->password);
+        $user->save();
 
         return view("admin.admin_panel_empl_list",
             ['users' => User::where('role', '!=', 'user')->get()]);

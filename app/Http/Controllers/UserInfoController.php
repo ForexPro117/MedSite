@@ -48,14 +48,15 @@ class UserInfoController extends Controller
         if ($validator->fails()) {
             return view("admin.admin_panel_add_user_form")->withErrors($validator);
         }
-        User::create([
-            'name' => $data->name,
-            'email' => $data->email,
-            'role' => 'user',
-            'password' => Hash::make($data->policy),
-        ]);
 
-        return view("admin.admin_panel_empl_list",
+        $user=new User();
+        $user->name=$data->name;
+        $user->email=$data->email;
+        $user->role='user';
+        $user->password=Hash::make($data->policy);
+        $user->save();
+
+        return view("admin.admin_panel_user_list",
             ['users' => User::where('role', 'user')->get()]);
     }
 

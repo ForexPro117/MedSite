@@ -18,7 +18,6 @@
 
         <div class="box">
             @foreach($polyclinics as $polyclinic)
-               <div class="list_item">
                 <div onclick="location.href='/polyclinic_about'" class="list_item">
                     <img class="photo" src="{{asset($polyclinic->uri)}}">
 
