@@ -17,22 +17,35 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
 
+/**
+ * Функционал авторизации для пользователей и сотрудников
+ */
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
 
-Route::get('/login/admin', [AuthenticatedSessionController::class, 'createAdmin'])
-    ->middleware('guest')
-    ->name('loginAdmin');
-
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
 
-Route::post('/login/admin', [AuthenticatedSessionController::class, 'storeAdmin'])
+Route::get('/admin/login', [AuthenticatedSessionController::class, 'createAdmin'])
+    ->middleware('guest')
+    ->name('loginAdmin');
+
+Route::post('/admin/login', [AuthenticatedSessionController::class, 'storeAdmin'])
     ->middleware('guest');
 
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth');
 
 
+
+/**
+ * Функционал который можно реализовать в будущем
+ */
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
     ->middleware('guest')
     ->name('password.request');
@@ -68,9 +81,3 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
     ->middleware('auth');
 
-Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
-
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth');

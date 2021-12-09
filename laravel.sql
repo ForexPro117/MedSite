@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 03 2021 г., 23:45
+-- Время создания: Дек 05 2021 г., 00:30
 -- Версия сервера: 10.4.22-MariaDB
 -- Версия PHP: 7.4.26
 
@@ -54,7 +54,7 @@ INSERT INTO `discription` (`id`, `home`, `district`, `city`, `street`, `email`, 
 (9, '20', 'Дебесы', 'с.Дебесы', 'ул.Советская', 'nevus@udmnet.ru', 'debessi.udmmed.ru/', 9),
 (10, '1Б', 'Завьялово', 'с.Завьялово', 'ул.Гольянская', 'mbuz-zavrb@yandex.ru', 'zavrb.udmmed.ru', 10),
 (11, '36', 'Игра', 'п.Игра', 'мкр.Нефтяников', 'info@crb.udmigra.ru', 'igra.udmmed.ru', 11),
-(12, '1', 'Камбарский', 'г.Камбарка', 'ул.Сосновый бор', 'crb-kam@mail.ru', 'kam-crb.ru', 12),
+(12, '1', 'Камбарка', 'г.Камбарка', 'ул.Сосновый бор', 'crb-kam@mail.ru', 'kam-crb.ru', 12),
 (13, '11', 'Каракулино', 'с.Каракулино', 'ул.60 лет Октября', 'kar-crb@udm.net', 'kcpb.udmmed.ru', 13),
 (14, '1', 'Кез', 'п.Кез', 'ул.Больничный городок', 'kezcrb@mail.ru', 'kez.udmmed.ru', 14),
 (15, '1', 'Кизнер', 'п.Кизнер', 'ул.Санаторная', 'crb-kizner@udm.net', 'kizner.udmmed.ru/', 15),
@@ -898,7 +898,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `name`, `password`, `email`, `email_verified_at`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, NULL, 'adminadmin', '$2y$10$pUe2TMtT6iZVjn0SjYvGIuOx3yzsEhiBv.Zm9s/ycmsi6hYort0nO', 'admin@gmail.com', NULL, 'user', NULL, '2021-12-02 19:26:40', '2021-12-02 19:26:40');
+(3, NULL, 'adminadmin', '$2y$10$pUe2TMtT6iZVjn0SjYvGIuOx3yzsEhiBv.Zm9s/ycmsi6hYort0nO', 'admin@gmail.com', NULL, 'user', NULL, '2021-12-02 19:26:40', '2021-12-02 19:26:40'),
+(4, NULL, 'Злой дед228', '$2y$10$5iezxg50vj/5du0Xd8GOCeJJPgh8Pr/FxF9K/wFac4UpcwsT4tRW6', 'admin@mail.com', NULL, 'user', NULL, '2021-12-04 19:21:14', '2021-12-04 19:25:59');
 
 --
 -- Индексы сохранённых таблиц
@@ -1029,7 +1030,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

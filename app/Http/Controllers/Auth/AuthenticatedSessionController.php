@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
 
     public function createAdmin()
     {
-        return view('auth.login');
+        return view('admin.admin_panel_login');
     }
 
     /**
@@ -53,7 +53,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->route('admin');
     }
 
     /**
