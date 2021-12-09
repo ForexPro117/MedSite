@@ -15,7 +15,6 @@
             <button onclick="listView()" class="list_view"></button>
             <button onclick="gridView()" class="grid_view"></button>
         </div>
-
         <div class="box">
             @foreach($polyclinics as $polyclinic)
                 <div onclick="location.href='{{route('polyclinic-about',["id"=>$polyclinic->id])}}'" class="list_item">

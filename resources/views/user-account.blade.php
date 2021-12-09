@@ -19,7 +19,8 @@
                             <div class="avatar"></div>
                             <p class="name">Иванов Иван Иванович</p>
                             <p class="spec">терапевт</p>
-                            <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
+                            {{--TODO не забыть--}}
+                            <button onclick="location.href='/doctor/about/1'" class="details">Подробнее</button>
                         </div>
                     </div>
                 </div>
@@ -27,7 +28,10 @@
                 <div class="curren-box person-box">
                     <h3>Персональная информация</h3>
                     <div class="documents">
-                        <p class="polys">Номер полиса: <span>32414124242142134</span></p>
+                        <p class="polys">Номер полиса: <span>{{request()->cookie('policy')}}</span></p>
+                    </div>
+                    <div class="documents">
+                        <p class="polys">Email: <span>{{request()->user()->email}}</span></p>
                     </div>
                 </div>
             </div>
