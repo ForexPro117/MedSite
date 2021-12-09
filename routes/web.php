@@ -32,8 +32,21 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
+Route::get('/user_account', function () {
+    return view('user_account');
+});
+
+Route::get('/doctor_about', function () {
+    return view('doctor_about');
+});
+
+Route::get('/polyclinic_about', function () {
+    return view('polyclinic_about');
+});
+
+
 Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
-    ->name('polyclinics');
+->name('polyclinics');
 
 Route::get('/appointment', function () {
     return view('appointment');
