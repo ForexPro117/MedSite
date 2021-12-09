@@ -41,7 +41,7 @@
 }
 
 .photo {
-    background-image: url("../storage/photo_poly.jpg");
+    /*background-image: url("../storage/photo_poly.jpg");*/
     background-size: cover;
     border: none;
     border-radius: 25px;

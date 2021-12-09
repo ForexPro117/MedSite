@@ -31,6 +31,7 @@ class Hospital extends Model
     {
         return Hospital::leftJoin('discription', 'id_discription', '=', 'discription.id')
             ->leftJoin('phonenumber', 'id_phoneNumber', '=', 'phonenumber.id')
+            ->leftJoin('images', 'id_imageHospital', '=', 'images.id')
             ->get();
     }
 
