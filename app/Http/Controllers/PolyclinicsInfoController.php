@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Doctor;
 use App\Models\Hospital;
 
 
@@ -17,12 +18,12 @@ class PolyclinicsInfoController extends Controller
      */
     public function getPolyclinics($region)
     { //TODO: добавить описания для больниц
-      
+
         if (request()->type)
-            $polyclinics = Hospital::getDiscription()->where('district', $region)
-            ->where('type',request()->type);
+            $polyclinics = Hospital::getPolyclinics()->where('district', $region)
+                ->where('type', request()->type);
         else
-            $polyclinics = Hospital::getDiscription()->where('district', $region);
+            $polyclinics = Hospital::getPolyclinics()->where('district', $region);
 
         if ($polyclinics->first() == null)
             abort(404);
@@ -30,10 +31,16 @@ class PolyclinicsInfoController extends Controller
         return view('polyclinics', ['polyclinics' => $polyclinics]);
     }
 
-    public function getDoctors()
+    /**
+     * Возвращает страницу с описанием поликлиники
+     * @param string $id - id поликлиники в базе данных
+     */
+    public function getAboutPage($id)
     {
-
-        return 'aa';
+        $polyclinic = Hospital::getPolyclinicById($id);
+        $specializations = Doctor::getDoctors()->where('id_hostpital', $id)->groupBy('specialization');
+        return view('polyclinic-about', ['polyclinic' => $polyclinic,'specializations' => $specializations]);
     }
+
 
 }

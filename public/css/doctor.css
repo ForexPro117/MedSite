@@ -25,14 +25,15 @@
 }
 
 .photo {
-    width: 290px;
-    height: 290px;
+    width: 340px;
+    height: 270px;
     border: 2px solid #c7c7c7;
     border-radius: 50%;
-    background-image: url("../storage/photo.jpg");
+   /* background-image: url("../storage/photo.jpg");*/
     background-size: cover;
     background-position: center;
-    margin: auto auto 20px;
+    margin: auto  auto 20px;
+
 }
 
 .description {

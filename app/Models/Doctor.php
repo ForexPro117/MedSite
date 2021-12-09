@@ -16,4 +16,30 @@ class Doctor extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Возвращает коллекцию докторов
+     */
+    public static function getDoctors()
+    {
+
+        return Doctor::leftJoin('specialization', 'id_spec', '=', 'specialization.id')
+            ->leftJoin('images', 'id_image', '=', 'images.id')
+            ->select('doctors.*','specialization.specialization','images.uri')
+            ->get();
+    }
+
+    /**
+     * Возвращает модель Doctor если найдена,
+     * иначе отправляет ответ 404
+     * @return Hospital
+     * @param id
+     */
+    public static function getDoctorById($id)
+    {
+        return Doctor::leftJoin('specialization', 'id_spec', '=', 'specialization.id')
+            ->leftJoin('images', 'id_image', '=', 'images.id')
+            ->select('doctors.*','specialization.specialization','images.uri')
+            ->findOrFail($id);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EmployeeInfoController;
 use App\Http\Controllers\PolyclinicsInfoController;
 use App\Http\Controllers\UserInfoController;
@@ -24,26 +25,19 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/user_account', function () {
-    return view('user_account');
-});
+Route::get('/user/account', function () {
+    return view('user-account');
+})->middleware(['auth']);
 
-Route::get('/doctor_about', function () {
-    return view('doctor_about');
-});
+Route::get('/doctor/about/{id}',[DoctorController::class,'getDoctorAbout'])
+    ->name('doctor-about');
 
-Route::get('/polyclinic_about', function () {
-    return view('polyclinic_about');
-});
-
+Route::get('/polyclinics/about/{id}',[PolyclinicsInfoController::class, 'getAboutPage'])
+    ->name('polyclinic-about');
 
 Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
 ->name('polyclinics');

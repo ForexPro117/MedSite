@@ -21,8 +21,13 @@
                     <input type="text" name="name" class="input_login" required placeholder="Введите вашу фамилию...">
                     <p class="error"></p>
                 </div>
-                <input type="text" name="password" class="input_login" required placeholder="Введите ваш номер полиса...">
+                <input type="text" name="password" class="input_login" required
+                       placeholder="Введите ваш номер полиса...">
                 <p class="error"></p>
+                <input type="checkbox" name="remember">
+                <label>
+                    Запомнить меня
+                </label>
                 <button type="submit" class="login-btn">Войти</button>
             </form>
         </div>
