@@ -32,9 +32,9 @@ Route::get('/user/account', function () {
     return view('user-account');
 })->middleware(['auth']);
 
-Route::get('/doctor_about', function () {
+Route::get('/doctor/about/{id}', function ($id) {
     return view('doctor-about');
-});
+})->name('doctor-about');
 
 Route::get('/polyclinics/about/{id}',[PolyclinicsInfoController::class, 'getAboutPage'])
     ->name('polyclinicAbout');

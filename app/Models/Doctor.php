@@ -25,6 +25,7 @@ class Doctor extends Model
 
         return Doctor::leftJoin('specialization', 'id_spec', '=', 'specialization.id')
             ->leftJoin('images', 'id_image', '=', 'images.id')
+            ->select('doctors.*','specialization.specialization','images.uri')
             ->get();
     }
 }

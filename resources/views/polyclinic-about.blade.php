@@ -12,7 +12,7 @@
                 <p class="phone-number">Номер телефона: <span>{{$polyclinic->phoneNumber}}</span></p>
             @endisset
             <p class="address">Адрес:
-                <span>{{$polyclinic->district}}, {{$polyclinic->street}}, {{$polyclinic->home}}</span></p>
+                <span>{{$polyclinic->city}}, {{$polyclinic->street}}, {{$polyclinic->home}}</span></p>
             @isset($polyclinic->email)
                 <p class="email">Email: <a href="mailto:{{$polyclinic->email}}">{{$polyclinic->email}}</a></p>
             @endisset
@@ -33,7 +33,7 @@
                                 <div class="doctor-mini">
                                     <div class="doctor-avatar"></div>
                                     <div class="doctor-info">
-                                        <a href="/doctor_about">{{$doctor->name}}</a>
+                                        <a href={{route('doctor-about',[$doctor->id])}}>{{$doctor->name}}</a>
                                         {{--TODO сюда тоже на будущее--}}
                                         <span class="free-num">Свободных номерков: <strong>32</strong></span>
                                         @isset($doctor->area)
