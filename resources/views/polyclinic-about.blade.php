@@ -31,7 +31,7 @@
                         <div class="doctor-box">
                             @foreach($doctors as $doctor)
                                 <div class="doctor-mini">
-                                    <div class="doctor-avatar"></div>
+                                    <img class="doctor-avatar" src="{{asset($doctor->uri)}}">
                                     <div class="doctor-info">
                                         <a href={{route('doctor-about',[$doctor->id])}}>{{$doctor->name}}</a>
                                         {{--TODO сюда тоже на будущее--}}

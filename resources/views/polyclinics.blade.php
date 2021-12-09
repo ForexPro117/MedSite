@@ -18,7 +18,7 @@
 
         <div class="box">
             @foreach($polyclinics as $polyclinic)
-                <div onclick="location.href='{{route('polyclinicAbout',["id"=>$polyclinic->id])}}'" class="list_item">
+                <div onclick="location.href='{{route('polyclinic-about',["id"=>$polyclinic->id])}}'" class="list_item">
                     <img class="photo" src="{{asset($polyclinic->uri)}}">
                     <div class="text_about">
                         <h5 class="text_about_title"> {{$polyclinic->name}}</h5>

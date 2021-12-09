@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EmployeeInfoController;
 use App\Http\Controllers\PolyclinicsInfoController;
 use App\Http\Controllers\UserInfoController;
@@ -32,12 +33,11 @@ Route::get('/user/account', function () {
     return view('user-account');
 })->middleware(['auth']);
 
-Route::get('/doctor/about/{id}', function ($id) {
-    return view('doctor-about');
-})->name('doctor-about');
+Route::get('/doctor/about/{id}',[DoctorController::class,'getDoctorAbout'])
+    ->name('doctor-about');
 
 Route::get('/polyclinics/about/{id}',[PolyclinicsInfoController::class, 'getAboutPage'])
-    ->name('polyclinicAbout');
+    ->name('polyclinic-about');
 
 Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
 ->name('polyclinics');
