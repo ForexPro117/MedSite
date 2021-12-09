@@ -33,6 +33,10 @@ Route::get('/doctor_about', function () {
     return view('doctor_about');
 });
 
+Route::get('/polyclinic_about', function () {
+    return view('polyclinic_about');
+});
+
 Route::get('/polyclinics/{region}', [\App\Http\Controllers\PolyclinicsInfoController::class,'getPolyclinics'])
     ->name('polyclinics');
 

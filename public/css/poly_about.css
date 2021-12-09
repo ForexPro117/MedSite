@@ -1,0 +1,119 @@
+.content {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.content .title {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.photo {
+    background-image: url("../storage/photo_poly.jpg");
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 290px;
+    height: 290px;
+    margin: auto auto 20px;
+}
+
+.content p {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.content .description, span {
+    font-weight: 400;
+}
+
+.content .description {
+    text-align: left;
+}
+
+.content a {
+    color: black;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.appoint-spec {
+    margin: auto auto 20px;
+    background: #4c63d9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    width: 200px;
+    height: 70px;
+}
+
+.spec-title {
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.box {
+    text-align: left;
+}
+
+.doctor-box {
+    display: none;
+    flex-flow: row wrap;
+    transition: 1s;
+}
+
+.specialization {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.specialization:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.doctor-mini {
+    display: flex;
+    flex-flow: row;
+    margin: 20px 20px;
+}
+
+.doctor-avatar {
+    background-image: url("../storage/photo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 140px;
+    height: 140px;
+    border: 2px solid grey;
+    border-radius: 50%;
+}
+
+.doctor-info {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin-left: 10px;
+    height: 140px;
+}
+
+.doctor-info span, a{
+    font-size: 18px;
+}
+
+.signup {
+    border-radius: 25px;
+    height: 30px;
+    max-width: 120px;
+    border: none;
+    color: white;
+    background: #4c63d9;
+}

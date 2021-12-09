@@ -101,3 +101,12 @@ function gridView() {
     }
 }
 
+function showDoctor() {
+    if (document.querySelector('.doctor-box').style.display !== 'flex') {
+        document.querySelector('.doctor-box').style.display = 'flex';
+    } else {
+        document.querySelector('.doctor-box').style.display = 'none';
+    }
+}
+
+

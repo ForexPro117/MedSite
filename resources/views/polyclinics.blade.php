@@ -18,7 +18,7 @@
 
         <div class="box">
             @foreach($polyclinics as $polyclinic)
-                <div class="list_item">
+                <div onclick="location.href='/polyclinic_about'" class="list_item">
                     <div class="photo"></div>
                     <div class="text_about">
                         <h5 class="text_about_title"> {{$polyclinic->name}}</h5>
