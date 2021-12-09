@@ -45,6 +45,10 @@ function loadUsersListPage() {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список пользователей";
+    document.getElementById('user_list').style.background = 'rgb(11, 136, 168)';
+    document.getElementById('user_list').style.color = 'rgb(255, 255, 255)';
+    document.getElementById('employee_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('employee_list').style.background = 'rgb(255, 255, 255)';
 }
 
 /**
@@ -55,6 +59,10 @@ function loadEmployeesListPage() {
         document.getElementById("action_window").innerHTML = data
     })
     document.getElementById("text").innerText = "Список сотрудников";
+    document.getElementById('user_list').style.background = 'rgb(255, 255, 255)';
+    document.getElementById('user_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('employee_list').style.color = 'rgb(255, 255, 255)';
+    document.getElementById('employee_list').style.background = 'rgb(11, 136, 168)';
 }
 
 /**
@@ -211,4 +219,20 @@ function addEmployee() {
             document.getElementById("action_window").innerHTML = data;
             document.getElementById("text").innerText = "Список сотрудников";
         })
+}
+
+// обработчик нажатия на главный чекбокс(отмечает все элементы или снимает отметки)
+function markUnmarkAll() {
+    let i;
+    let checkbox = document.getElementById('select_all');
+    let marks = document.getElementsByClassName('subscribeNews');
+    if (checkbox.checked === true) {
+        for (i = 0; i<marks.length; i++) {
+            marks[i].checked = true
+        }
+    } else {
+        for (i = 0; i<marks.length; i++) {
+            marks[i].checked = false
+        }
+    }
 }

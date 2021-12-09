@@ -1,16 +1,9 @@
 <div class="sheet_for_form">
 
     <div class="element_header">
-        <div class="element_header_text">Список сотрудников</div>
-
-        <a href="/admin_panel/add_user" class="element_header_href" id="add_user_button">
-            <input type="image" class="element_header_icon" src="storage/plus_icon.png" alt="">
-        </a>
-
-        <a href="/admin_panel/delete_users" class="element_header_href" id="delete_users">
-            <input type="image" class="element_header_icon" src="storage/trashcan_icon.png" alt="">
-        </a>
-
+        <button onclick="loadAddEmployeePage()" id="add_users" class="element_header_icon"></button>
+        <button onclick="" id="delete_users" class="element_header_icon"></button>
+        <button onclick="" id="search" class="element_header_icon"></button>
     </div>
 
     <br>
@@ -19,7 +12,7 @@
         <tr class="users_table_header">
             <td>
                 <label for="subscribeNews"></label>
-                <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                <input onclick="markUnmarkAll()" type="checkbox" id="select_all" name="subscribe" value="newsletter">
             </td>
             <th>Id</th>
             <th>Логин</th>
@@ -29,10 +22,10 @@
             <th>Обновлен</th>
         </tr>
         @foreach($users as $user)
-            <tr class="users_table_body" onclick="clickOnEmployee({{$user->id}})">
+            <tr class="users_table_body">
                 <td>
-                    <label for="subscribeNews"></label><input type="checkbox" id="subscribeNews" name="subscribe"
-                                                              value="newsletter">
+                    <label for="subscribeNews"></label>
+                    <input type="checkbox" class="subscribeNews" id="subscribeNews" name="subscribe" value="newsletter">
                 </td>
                 <td>{{$user->id}}</td>
                 <td>{{$user->login}}</td>
@@ -40,6 +33,7 @@
                 <td>{{$user->role}}</td>
                 <td>{{$user->created_at}}</td>
                 <td>{{$user->updated_at}}</td>
+                <td><button onclick="clickOnEmployee({{$user->id}})" class="edit_info"></button></td>
             </tr>
         @endforeach
     </table>
