@@ -17,12 +17,12 @@ class PolyclinicsInfoController extends Controller
      */
     public function getPolyclinics($region)
     { //TODO: добавить описания для больниц
-      
+
         if (request()->type)
-            $polyclinics = Hospital::getDiscription()->where('district', $region)
+            $polyclinics = Hospital::getPolyclinics()->where('district', $region)
             ->where('type',request()->type);
         else
-            $polyclinics = Hospital::getDiscription()->where('district', $region);
+            $polyclinics = Hospital::getPolyclinics()->where('district', $region);
 
         if ($polyclinics->first() == null)
             abort(404);
@@ -30,10 +30,15 @@ class PolyclinicsInfoController extends Controller
         return view('polyclinics', ['polyclinics' => $polyclinics]);
     }
 
-    public function getDoctors()
-    {
+    /**
+     * Возвращает страницу с описанием поликлиники
+     * @param string $id - id поликлиники в базе данных
+     */
+    public function getAboutPage($id)
+        {
+            $polyclinic=Hospital::getPolyclinicById($id);
+            return view('polyclinic-about',['polyclinic' => $polyclinic]);
+        }
 
-        return 'aa';
-    }
 
 }

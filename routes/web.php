@@ -24,26 +24,20 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/appointment', function () {
     return view('appointment');
 });
 
-Route::get('/user_account', function () {
-    return view('user_account');
-});
+Route::get('/user/account', function () {
+    return view('user-account');
+})->middleware(['auth']);
 
 Route::get('/doctor_about', function () {
-    return view('doctor_about');
+    return view('doctor-about');
 });
 
-Route::get('/polyclinic_about', function () {
-    return view('polyclinic_about');
-});
-
+Route::get('/polyclinics/about/{id}',[PolyclinicsInfoController::class, 'getAboutPage'])
+    ->name('polyclinicAbout');
 
 Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
 ->name('polyclinics');

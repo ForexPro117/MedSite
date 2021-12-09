@@ -25,14 +25,28 @@ class Hospital extends Model
 
     /**
      * Возвращает связанные таблицы Hospital
-     * @return Hospital
+     * @return Hospital[]
      */
-    public static function getDiscription()
+    public static function getPolyclinics()
     {
         return Hospital::leftJoin('discription', 'id_discription', '=', 'discription.id')
             ->leftJoin('phonenumber', 'id_phoneNumber', '=', 'phonenumber.id')
             ->leftJoin('images', 'id_imageHospital', '=', 'images.id')
             ->get();
+    }
+
+    /**
+     * Возвращает модель Hospital если найдена,
+     * иначе отправляет ответ 404
+     * @return Hospital
+     * @param id
+     */
+    public static function getPolyclinicById($id)
+    {
+        return Hospital::leftJoin('discription', 'id_discription', '=', 'discription.id')
+            ->leftJoin('phonenumber', 'id_phoneNumber', '=', 'phonenumber.id')
+            ->leftJoin('images', 'id_imageHospital', '=', 'images.id')
+            ->findOrFail($id);
     }
 
 }
