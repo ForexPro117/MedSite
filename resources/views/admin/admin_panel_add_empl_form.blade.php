@@ -1,10 +1,9 @@
-<form method="post" action="/admin/employee/add-form" class="add_user_from">
-    @csrf
+<form class="add_user_from">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li class="text_error">{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
@@ -35,19 +34,19 @@
 
     <div class="login_form_title"> Пароль</div>
     <label>
-        <input type="password" name="password" id="addForm_password" placeholder="Введите пароль" class="login_form_input"/>
+        <input type="password" name="password" id="addForm_password" placeholder="Введите пароль"
+               class="login_form_input"/>
     </label>
     <div class="login_form_space"></div>
 
     <div class="login_form_title">Повторите пароль</div>
     <label>
-        <input type="password" name="password_confirmation" id="addForm_password_confirmation" class="login_form_input"/>
+        <input type="password" name="password_confirmation" id="addForm_password_confirmation"
+               class="login_form_input"/>
     </label>
     <div class="login_form_space"></div>
-
-
     <div>
-        <label><input type="submit"  value="Добавить пользователя" class="add_user_button"/></label>
+        <label><input type="button" onclick="addEmployee()" value="Добавить пользователя" class="add_user_button"/></label>
     </div>
 </form>
 

@@ -52,7 +52,8 @@ Route::get('/admin', function () {
 
 Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList']);
 
-Route::get('/admin/user/add-form',[UserInfoController::class, 'create']);
+Route::get('/admin/user/add-form',[UserInfoController::class, 'create'])
+->name('addUser');
 
 Route::post('/admin/user/add-form',[UserInfoController::class, 'addUser']);
 
@@ -67,10 +68,11 @@ Route::post('/admin/user/{id}', [UserInfoController::class, 'getUserForm']);
 
 Route::post('/admin/employee/list', [EmployeeInfoController::class, 'getEmployeesList']);
 
-Route::get('/admin/employee/add-form',[EmployeeInfoController::class, 'create']);
+Route::get('/admin/employee/add-form',[EmployeeInfoController::class, 'create'])
+    ->name('addEmployee');
 
-Route::post('/admin/employee/add-form',[EmployeeInfoController::class, 'addEmployee'])
-->name('asas');
+Route::post('/admin/employee/add-form',[EmployeeInfoController::class, 'addEmployee']);
+
 
 Route::post('/admin/employee/add', [EmployeeInfoController::class, 'addEmployee']);
 

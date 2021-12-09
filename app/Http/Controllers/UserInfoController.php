@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserInfoController extends Controller
 {
@@ -38,19 +38,22 @@ class UserInfoController extends Controller
      */
     public function addUser()
     {
-
-        request()->validate([
+        $data = json_decode($_POST['data']);
+        $validator = Validator::make(['name' => $data->name,
+            'policy' => $data->policy, 'email' => $data->email], [
             'name' => ['required', 'string', 'max:90'],
-            'email'=> ['nullable','string', 'email', 'max:100'],
-            'password' => ['required', 'min:8', 'max:90'],
+            'email' => ['nullable', 'string', 'email', 'max:100'],
+            'policy' => ['required', 'min:8', 'max:90'],
         ]);
-
-        /*User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role'=>'user',
-            'password' => Hash::make($request->password),
-        ]);*/
+        if ($validator->fails()) {
+            return view("admin.admin_panel_add_user_form")->withErrors($validator);
+        }
+        User::create([
+            'name' => $data->name,
+            'email' => $data->email,
+            'role' => 'user',
+            'password' => Hash::make($data->policy),
+        ]);
 
         return view("admin.admin_panel_empl_list",
             ['users' => User::where('role', 'user')->get()]);

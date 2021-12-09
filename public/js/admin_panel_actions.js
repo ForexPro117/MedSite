@@ -22,7 +22,7 @@ function queryGetRequest(url, successFunction) {
  * @param parameters параменты
  * @param successFunction колбек при успешном выполнении функции
  */
-function queryPostRequest(url, parameters, successFunction) {
+function queryPostRequest(url, parameters, successFunction, failFunction) {
     $(document).ready(function () {
         $.ajax({
             url: url,
@@ -32,7 +32,7 @@ function queryPostRequest(url, parameters, successFunction) {
             success: function (data) {
                 successFunction(data)
             }
-        });
+        }).fail((data) => failFunction(data));
     });
 }
 
@@ -124,7 +124,7 @@ function loadUserInfoFormPage(id, url) {
  */
 function updateUser() {
 
-    queryPostRequest("/admin/user_update",
+    queryPostRequest("/admin/user/update",
         {
             id: document.getElementById('update_form_id').value,
             name: document.getElementById('update_form_name').value,
@@ -142,7 +142,7 @@ function updateUser() {
  */
 function updateEmployee() {
 
-    queryPostRequest("/admin/employee_update",
+    queryPostRequest("/admin/employee/update",
         {
             id: document.getElementById('update_form_id').value,
             login: document.getElementById('update_form_login').value,
@@ -161,7 +161,6 @@ function updateEmployee() {
 function loadAddUserPage() {
     queryGetRequest("/admin/user/add-form/", function (data) {
         document.getElementById("action_window").innerHTML = data;
-       /* document.getElementById("addBtn").onclick = () =>addUser();*/
     });
     document.getElementById("text").innerText = "Добавление пользователя";
 
@@ -174,7 +173,6 @@ function loadAddUserPage() {
 function loadAddEmployeePage() {
     queryGetRequest("/admin/employee/add-form/", function (data) {
         document.getElementById("action_window").innerHTML = data;
-        /*document.getElementById("addBtn").onclick = () => addEmployee();*/
     });
     document.getElementById("text").innerText = "Добавление сотрудника";
 }
@@ -183,24 +181,24 @@ function loadAddEmployeePage() {
  * Добавляет пользователя в базу данных
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
-/*function addUser() {
+function addUser() {
 
     queryPostRequest("/admin/user/add-form",
         {
             name: document.getElementById('addForm_name').value,
             email: document.getElementById('addForm_email').value,
-            password: document.getElementById('addForm_password').value
+            policy: document.getElementById('addForm_policy').value
         }, function (data) {
             document.getElementById("action_window").innerHTML = data;
             document.getElementById("text").innerText = "Список пользователей";
         })
-}*/
+}
 
 /**
  * Добавляет сотрудника в базу данных
  * [!] данные берутся из формы, вызывается при нажатии на кнопку
  */
-/*function addEmployee() {
+function addEmployee() {
 
     queryPostRequest("admin/employee/add-form",
         {
@@ -213,4 +211,4 @@ function loadAddEmployeePage() {
             document.getElementById("action_window").innerHTML = data;
             document.getElementById("text").innerText = "Список сотрудников";
         })
-}*/
+}

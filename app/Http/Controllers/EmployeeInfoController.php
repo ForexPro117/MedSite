@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeInfoController extends Controller
 {
@@ -37,21 +38,24 @@ class EmployeeInfoController extends Controller
      */
     public function addEmployee()
     {
+        $data = json_decode($_POST['data']);
+        $validator = Validator::make(['login' => $data->login,
+            'password' => $data->password, 'password_confirmation' => $data->password_confirmation,
+            'email' => $data->email], [
 
-
-        dd(request());
-        request()->validate([
-            'login' => ['required','unique:users','string', 'max:90'],
-            'email' => ['nullable','string', 'email', 'max:100'],
-            'password' => ['required', 'min:8','confirmed','max:90'],
+            'login' => ['required', 'string','unique:users', 'max:90'],
+            'email' => ['nullable', 'string', 'email', 'max:100'],
+            'password' => ['required', 'confirmed', 'min:8', 'max:90'],
         ]);
-
-       /* User::create([
-            'login' => $request->login,
-            'email' => $request->email,
-            'role'=>$request->role,
-            'password' => Hash::make($request->password),
-        ]);*/
+        if ($validator->fails()) {
+            return view("admin.admin_panel_add_empl_form")->withErrors($validator);
+        }
+        User::create([
+            'login' => $data->login,
+            'email' => $data->email,
+            'password' => Hash::make($data->password),
+            'role' => $data->role //TODO БАГ роль не записывается, записывается юзер
+        ]);
 
 
         return view("admin.admin_panel_empl_list",
