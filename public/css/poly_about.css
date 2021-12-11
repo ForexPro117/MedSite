@@ -80,6 +80,7 @@
 
 
 .doctor-mini {
+    width: 500px;
     display: flex;
     flex-flow: row;
     margin: 20px 20px;
