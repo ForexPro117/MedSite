@@ -24,10 +24,10 @@
                 <input type="text" name="password" class="input_login" required
                        placeholder="Введите ваш номер полиса...">
                 <p class="error"></p>
-                <input type="checkbox" name="remember">
-                <label>
-                    Запомнить меня
-                </label>
+                    <div class="checkbox">
+                        <input type="checkbox" name="remember">
+                        <label>Запомнить меня</label>
+                    </div>
                 <button type="submit" class="login-btn">Войти</button>
             </form>
         </div>
