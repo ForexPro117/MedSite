@@ -1,8 +1,8 @@
-function showHide() {
-    if (document.querySelector('.number-box').style.display !== 'block') {
-        document.querySelector('.number-box').style.display = 'block';
+function showHide(index) {
+    if (document.getElementById(index).style.display !== 'block') {
+        document.getElementById(index).style.display = 'block';
     } else {
-        document.querySelector('.number-box').style.display = 'none';
+        document.getElementById(index).style.display = 'none';
     }
 }
 
@@ -72,18 +72,18 @@ var i;
 
 // Представление списка
 function listView() {
-     list.style.backgroundColor = '#8D98F9';
-     list.style.backgroundImage = 'url("../storage/list.png")';
-     grid.style.backgroundColor = '#B7B1B1';
-     grid.style.backgroundImage = 'url("../storage/grid.png")';
-     box.style.flexFlow = 'column';
-  for (i = 0; i < elements.length; i++) {
-      elements[i].classList.add('list_item');
-      elements[i].classList.remove('grid_item');
-      desc[i].style.display = '';
-      address[i].style.display = '';
-      num[i].style.display = '';
-  }
+    list.style.backgroundColor = '#8D98F9';
+    list.style.backgroundImage = 'url("../storage/list.png")';
+    grid.style.backgroundColor = '#B7B1B1';
+    grid.style.backgroundImage = 'url("../storage/grid.png")';
+    box.style.flexFlow = 'column';
+    for (i = 0; i < elements.length; i++) {
+        elements[i].classList.add('list_item');
+        elements[i].classList.remove('grid_item');
+        desc[i].style.display = '';
+        address[i].style.display = '';
+        num[i].style.display = '';
+    }
 }
 
 // Представление сетки
@@ -93,7 +93,7 @@ function gridView() {
     grid.style.backgroundColor = '#8D98F9';
     grid.style.backgroundImage = 'url("../storage/grid.png")';
     box.style.flexFlow = 'row wrap';
-    for(i = 0;i < elements.length; i++) {
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.add('grid_item');
         desc[i].style.display = 'none';
         address[i].style.display = 'none';
@@ -101,11 +101,11 @@ function gridView() {
     }
 }
 
-function showDoctor() {
-    if (document.querySelector('.doctor-box').style.display !== 'flex') {
-        document.querySelector('.doctor-box').style.display = 'flex';
-    } else {
-        document.querySelector('.doctor-box').style.display = 'none';
+function showDoctor(index) {
+    if (document.getElementById(index).style.display !== 'flex')
+        document.getElementById(index).style.display = 'flex';
+    else {
+        document.getElementById(index).style.display = 'none';
     }
 }
 

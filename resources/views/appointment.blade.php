@@ -71,12 +71,14 @@
         </div>
         <h4 class="secondary_title">Список доступных номерков</h4>
         <div class="available_days">
-            <p class="day" onclick="showHide()">Пятница, 11.12.2021</p>
-            <div class="number-box">
+            <?php $i = 0 ?>
+            <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
+            <div id="<?php echo $i ?>" class="number-box">
                 @foreach($numbers as $number)
                     <li class="time_button">{{$number}}</li>
                 @endforeach
             </div>
+                <?php $i++ ?>
         </div>
         <button class="submit">Записаться</button>
     </div>
