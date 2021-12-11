@@ -41,8 +41,7 @@
 }
 
 .photo {
-    /*background-image: url("../storage/photo_poly.jpg");*/
-    background-size: cover;
+    object-fit:cover;
     border: none;
     border-radius: 25px;
     width: 150px;

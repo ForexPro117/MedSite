@@ -11,7 +11,7 @@
 @section('bodyContent')
     <div class="container">
         <div class="content">
-            <img class="photo" src="{{asset($doctor->uri)}}">
+            <img class="photo" src="{{asset($doctor->uri)}}" alt="doctor">
             <h4 class="doctor_name">{{$doctor->name}}</h4>
             <p class="specialization">Специализация: <span>{{$doctor->specialization}}</span></p>
             <p class="experience">Стаж: <span>{{random_int(5,10)}} лет</span></p>
