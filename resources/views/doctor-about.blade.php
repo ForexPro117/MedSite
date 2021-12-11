@@ -19,12 +19,14 @@
             <span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequatur cumque eligendi enim ex exercitationem, in iusto laborum minus neque officiis omnis placeat quasi quibusdam sit vel voluptas? Eveniet, sit?</span>
             <p class="available_num_title">Доступные номерки: </p>
             <div class="available_days">
-                <p class="day" onclick="showHide()">Пятница, 11.12.2021</p>
-                <div class="number-box">
+                <?php $i = 0 ?>
+                <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
+                <div id="<?php echo $i ?>" class="number-box">
                     @foreach($numbers as $number)
                         <li class="time_button">{{$number}}</li>
                     @endforeach
                 </div>
+                <?php $i++ ?>
             </div>
 
         </div>

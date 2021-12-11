@@ -26,9 +26,10 @@
             <h4 class="spec-title">Специалисты в данном учреждении:</h4>
             <div class="box">
                 <ul>
+                    <?php $i = 0 ?>
                     @foreach($specializations as $key => $doctors)
-                        <li><p onclick="showDoctor()" class="specialization">{{$key}}</p></li>
-                        <div class="doctor-box">
+                        <li><p onclick="showDoctor(<?php echo $i?>)" class="specialization">{{$key}}</p></li>
+                        <div id="<?php echo $i?>" class="doctor-box">
                             @foreach($doctors as $doctor)
                                 <div class="doctor-mini">
                                     <img class="doctor-avatar" src="{{asset($doctor->uri)}}">
@@ -47,6 +48,7 @@
                                 </div>
                             @endforeach
                         </div>
+                            <?php $i++ ?>
                     @endforeach
                 </ul>
             </div>
