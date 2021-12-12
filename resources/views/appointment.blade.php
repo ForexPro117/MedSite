@@ -8,9 +8,7 @@
 <link rel="stylesheet" href="{{ asset('css/appoint.css') }}">
 @section('bodyContent')
     <div class="container">
-        <div class="header d-flex align-items-center justify-content-center">
-            <h1 class="main_title">Запись на прием к врачу</h1>
-        </div>
+        <h1 class="main_title">Запись на прием к врачу</h1>
 
         <h4 class="secondary_title">В каком населенном пункте вы бы хотели записаться?</h4>
 
@@ -61,25 +59,38 @@
             <input id="delete_doctor" onclick="deleteDoctor()" type="button" class="btn_delete">
         </div>
 
-        <h4 class="secondary_title">Список доступных врачей</h4>
-
-        <div class="doctor_card">
-            <div class="avatar"></div>
-            <p class="name">Иванов Иван Иванович</p>
-            <p class="spec">терапевт</p>
-            <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
-        </div>
-        <h4 class="secondary_title">Список доступных номерков</h4>
-        <div class="available_days">
-            <?php $i = 0 ?>
-            <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
-            <div id="<?php echo $i ?>" class="number-box">
-                @foreach($numbers as $number)
-                    <li class="time_button">{{$number}}</li>
-                @endforeach
+        <div class="available_doctors">
+            <h4 class="secondary_title">Список доступных врачей</h4>
+            <div class="doctors-cards">
+                {{--врачи--}}
+                <?php $i = 0 ?>
+                    <!--                на foreach-->
+                @for($i = 0; $i < 10;$i++)
+                <div id="<?php echo $i ?>" onclick="selectDoctorCard(<?php echo $i ?>)" class="doctor_card">
+                    <div class="avatar"></div>
+                    <p class="name">Иванов Иван Иванович</p>
+                    <p class="spec">терапевт</p>
+                    <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
+                </div>
+                @endfor
             </div>
-                <?php $i++ ?>
         </div>
-        <button class="submit">Записаться</button>
+
+        <div class="available_numbers">
+            <h4 class="secondary_title">Список доступных номерков</h4>
+            <div class="available_days">
+                <?php $i = 1000 ?>
+                <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
+                <div id="<?php echo $i ?>" class="number-box">
+                    @foreach($numbers as $number)
+                        <li class="time_button">{{$number}}</li>
+                    @endforeach
+                </div>
+                <?php $i++ ?>
+            </div>
+            <button class="submit">Записаться</button>
+        </div>
+
     </div>
+    <script src="{{asset("js/appointment.js")}}"></script>
 @endsection
