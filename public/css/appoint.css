@@ -37,7 +37,6 @@ header {
 
 .inputs:focus {
     border: 2px solid #000000;
-    box-shadow: 1px 1px 5px black;
 }
 
 .select {
@@ -86,7 +85,8 @@ header {
 }
 
 .btn_delete:hover {
-    -webkit-transform: scale(1.02);
+    background: #e23434 url("../storage/x.png") center no-repeat;
+    background-size: 20px;
 }
 
 .selected_locality {
@@ -101,6 +101,21 @@ header {
 
 .selected_doctor {
     display: none;
+    flex-flow: row;
+}
+
+#delete_doctor_card {
+    display: none;
+}
+
+.selected_num {
+    display: none;
+    flex-flow: row;
+    margin-bottom: 20px;
+}
+
+.box {
+    display: flex;
     flex-flow: row;
 }
 

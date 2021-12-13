@@ -54,15 +54,25 @@ function deleteDoctor() {
 }
 
 function selectDoctorCard(index) {
-        let cards = document.querySelectorAll('.doctor_card');
+    let cards = document.querySelectorAll('.doctor_card');
 
-        for (let i = 0; i < 10; i++) {
-            if (i === index) {
-                document.querySelector('.available_numbers').style.display = 'block'
-            } else {
-                cards[i].style.display = 'none';
-            }
+    for (let i = 0; i < 10; i++) {
+        if (i === index) {
+            document.querySelector('.available_numbers').style.display = 'block';
+        } else {
+            cards[i].style.display = 'none';
         }
+    }
+    document.getElementById('delete_doctor_card').style.display = 'flex';
+}
+
+function deleteDocCard() {
+    document.getElementById('delete_doctor_card').style.display = 'none';
+    let cards = document.querySelectorAll('.doctor_card');
+
+    for (let i = 0; i < 10; i++) {
+        cards[i].style.display = 'block';
+    }
 }
 
 function showHide(index) {
@@ -71,4 +81,15 @@ function showHide(index) {
     } else {
         document.getElementById(index).style.display = 'none';
     }
+}
+
+function selectNumber(time) {
+    document.querySelector('.selected_num').style.display = 'flex';
+    document.getElementById('selected_num_btn').value = time;
+    document.querySelector('.available_days').style.display = 'none';
+}
+
+function deleteNum(numbers) {
+    document.querySelector('.selected_num').style.display = 'none';
+    document.querySelector('.available_days').style.display = 'inline-block';
 }

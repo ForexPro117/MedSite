@@ -45,6 +45,9 @@ Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyc
 Route::get('/appointment', function () {
     return view('appointment');
 });
+Route::get('/submit_appointment', function () {
+    return view('submit_appointment');
+});
 
 /**
  * Руты используемые работниками
