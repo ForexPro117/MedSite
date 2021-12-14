@@ -22,7 +22,6 @@ header {
 .input-box {
     display: flex;
     flex-flow: row;
-    width: 100%;
 }
 
 #polyclinic {
@@ -96,6 +95,59 @@ header {
     background-size: 20px;
 }
 
+#polyclinicCards {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.error {
+    display: none;
+    color: red;
+}
+
+#emptyDocs {
+    display: none;
+}
+
+.availablePolyclinics {
+    display: none;
+    flex-flow: column;
+}
+
+.grid_item {
+    display: flex;
+    flex-flow: column;
+    border: none;
+    border-radius: 25px;
+    margin: 0 5px 10px;
+    cursor: pointer;
+    background: #8AAEF2;
+    width: 242px;
+    height: 304px;
+    padding: 10px 0 0 0;
+    transition: 0.5s;
+}
+
+.grid_item:hover {
+    -webkit-transform: scale(1.003);
+    background: #949dfc;
+}
+
+.grid_item .photo {
+    object-fit:cover;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    margin: 10px auto 0;
+}
+
+.grid_item .text_about_title {
+    margin-top: 20px;
+    text-align: center;
+    padding: 3px;
+}
+
 .selected_locality {
     display: none;
     flex-flow: row;
@@ -109,6 +161,10 @@ header {
 .selected_doctor {
     display: none;
     flex-flow: row;
+}
+
+#delete_polyclinic {
+    display: none;
 }
 
 #delete_doctor_card {
@@ -134,6 +190,10 @@ header {
 .available_numbers {
     display: none;
     margin-bottom: 20px;
+}
+
+.available_specs {
+    display: none;
 }
 
 .doctors-cards {
