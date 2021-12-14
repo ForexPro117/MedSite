@@ -55,4 +55,8 @@ function showDoctor(index) {
     }
 }
 
+function signUpDoctor() {
+
+}
+
 

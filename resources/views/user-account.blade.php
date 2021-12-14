@@ -48,7 +48,7 @@
                             <p class="spec">терапевт</p>
                             <p class="doctor-name">Иванов И. И.</p>
                         </div>
-                        <button class="same-doctor">Записаться к этому специалисту</button>
+                        <button onclick="signUpDoctor()" class="same-doctor">Записаться к этому специалисту</button>
                     </div>
             </div>
         </div>
