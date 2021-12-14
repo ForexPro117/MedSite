@@ -35,6 +35,15 @@ class Hospital extends Model
             ->get();
     }
 
+    public static function getPolyclinicsLike($data)
+    {
+        return Hospital::leftJoin('discription', 'id_discription', '=', 'discription.id')
+            ->leftJoin('phonenumber', 'id_phoneNumber', '=', 'phonenumber.id')
+            ->leftJoin('images', 'id_imageHospital', '=', 'images.id')
+            ->where('district','like','%'.$data->region.'%')
+            ->get();
+    }
+
     /**
      * Возвращает модель Hospital если найдена,
      * иначе отправляет ответ 404

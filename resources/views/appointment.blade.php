@@ -20,9 +20,10 @@
                         <input name="locality_name" type="text" id="city" class="inputs"
                                placeholder="Введите название нас. пункта...">
                         <div id="city_box" class="hints">
-                            <input type="button" class="btn_help" onclick="selectСity('Ижевск')" value="Ижевск">
-                            <input type="button" class="btn_help" onclick="selectСity('Сарапул')" value="Сарапул">
-                            <input type="button" class="btn_help" onclick="selectСity('Воткинск')" value="Воткинск">
+                            @foreach($regions as $region)
+                                <input type="button" class="btn_help"
+                                       onclick="selectСity('{{$region->district}}')" value={{$region->district}}>
+                            @endforeach
                         </div>
                     </div>
                     <button type="button" id="confirm" onclick="selectLocality()" class="select">Выбрать</button>
