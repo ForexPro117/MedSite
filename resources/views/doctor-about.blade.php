@@ -1,8 +1,3 @@
-@php
-    $numbers = array("9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00",
-                      "12:30","13:00", "13:30", "14:00", "14:30", "15:00", "15:30")
-@endphp
-
 @extends('header')
 {{--надо будет в title закинуть имя врача, о котором смотрим инфу--}}
 <title>{{$doctor->name}}</title>
@@ -18,16 +13,16 @@
             <p class="title_desc">Описание: </p>
             <span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequatur cumque eligendi enim ex exercitationem, in iusto laborum minus neque officiis omnis placeat quasi quibusdam sit vel voluptas? Eveniet, sit?</span>
             <p class="available_num_title">Доступные номерки: </p>
+            @for($i=0;$i<count($timetable);$i++)
             <div class="available_days">
-                <?php $i = 0 ?>
-                <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
-                <div id="<?php echo $i ?>" class="number-box">
-                    @foreach($numbers as $number)
-                        <li class="time_button">{{$number}}</li>
+                <p class="day" onclick="showHide({{$i}})">{{now()->addHour(4)->addDay($i)->dayName}}, {{now()->addHour(4)->addDay($i)->format('d.m.Y')}}</p>
+                <div id="{{$i}}" class="number-box">
+                    @foreach($timetable[now()->addHour(4)->addDay($i)->subDay(1)->dayOfWeek] as $time)
+                        <li class="time_button">{{$time}}</li>
                     @endforeach
                 </div>
-                <?php $i++ ?>
             </div>
+            @endfor
 
         </div>
     </div>
