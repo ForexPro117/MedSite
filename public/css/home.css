@@ -1,4 +1,5 @@
 .title_homepage {
+    display: flex;
     width: 100%;
     height: 579px;
     background-size: cover;
@@ -6,6 +7,12 @@
     z-index: 1;
 }
 
+.header_box {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 50%;
+}
 
 .quick_info {
     width: 100%;
@@ -18,7 +25,6 @@
 .title_text_homepage {
     font-weight: 300;
     font-size: 64px;
-    text-align: center;
     color: #FFFFFF;
     margin-bottom: 23px;
 }
@@ -63,7 +69,7 @@
 
 .btn_poly_orange {
     border: none;
-    width: 600px;
+    width: 45%;
     height: 60px;
     margin: 0 5px 20px 5px;
     background: #FFAA47;
@@ -83,7 +89,7 @@
 .btn_poly_blue {
     border: none;
     margin: 0 5px 20px 5px;
-    width: 600px;
+    width: 45%;
     height: 60px;
     background: #3E51B2;
     border-radius: 25px;
@@ -109,3 +115,32 @@
     text-decoration-line: underline;
     cursor: pointer;
 }
+
+@media (max-width: 750px) {
+    .header_box {
+        align-items: center;
+        width: 20%;
+    }
+
+   .title_text_homepage {
+       font-size: 40px;
+       text-align: center;
+   }
+
+   .titles {
+       font-size: 26px;
+   }
+
+   .quick_info .number {
+       font-size: 32px;
+   }
+
+   .quick_info .desc {
+       font-size: 16px;
+   }
+
+   .btn_poly_orange, .btn_poly_blue {
+       width: 100%;
+   }
+}
+

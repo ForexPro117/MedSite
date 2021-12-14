@@ -50,10 +50,6 @@ header {
     -webkit-transform: scale(1.05);
 }
 
-.user-name {
-
-}
-
 .user-name:hover {
     text-decoration: underline;
 }
@@ -115,4 +111,3 @@ footer {
     color: white;
     text-decoration-line: underline;
 }
-

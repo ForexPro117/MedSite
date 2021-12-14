@@ -9,8 +9,8 @@
 <title>Главная</title>
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @section('bodyContent')
-    <div class="title_homepage d-flex">
-        <div class="d-flex flex-column col-6 align-items-center justify-content-center">
+    <div class="title_homepage">
+        <div class="header_box container">
             <h1 class="title_text_homepage">Запись на прием <br>к врачу</h1>
             <button class="btn_appoint" onclick="location.href='/appointment'" type="button">Записаться на прием
             </button>

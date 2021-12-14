@@ -43,7 +43,7 @@
                                         @isset($doctor->cabinet)
                                             <span class="cabinet">Кабинет: <strong>{{$doctor->cabinet}}</strong></span>
                                         @endisset
-                                        <button onclick="" class="signup">Записаться</button>
+                                        <button onclick="signUpDoctor()" class="signup">Записаться</button>
                                     </div>
                                 </div>
                             @endforeach

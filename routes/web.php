@@ -46,6 +46,27 @@ Route::get('/appointment', function () {
     return view('appointment');
 });
 
+Route::post('/appPolyCard', function () {
+    return view('polyclinic_card');
+});
+
+Route::post('/appDocCard', function () {
+    return view('doctor-card');
+});
+
+Route::post('/appNumbers', function () {
+    return view('numbers');
+});
+
+Route::post('/appSpecs', function () {
+    return view('specs');
+});
+
+Route::get('/submit_appointment', function () {
+    return view('submit_appointment');
+});
+
+
 /**
  * Руты используемые работниками
  * TODO использовать в будущем /admin не рекомендуется

@@ -2,12 +2,10 @@ header {
     background: rgba(61, 126, 224, 0.95) !important;
 }
 
-.header {
-    width: 100%;
-    height: 200px;
-}
-
 .main_title {
+    display: flex;
+    justify-content: center;
+    margin: 100px auto 20px;
     font-weight: 300;
     font-size: 48px;
     color: #000000;
@@ -22,19 +20,29 @@ header {
 }
 
 .input-box {
-    width: 600px;
+    display: flex;
+    flex-flow: row;
+}
+
+#polyclinic {
+    min-width: 500px;
 }
 
 .inputs {
     display: block;
     width: 100%;
     height: 43px;
-    padding-left: 5px;
+    padding: 0 15px;
     background: #FFFFFF;
-    border: 2px solid #000000;
+    border: 2px solid #727272;
     box-sizing: border-box;
     border-radius: 25px;
+    margin-bottom: 5px;
     transition: 0.5s;
+}
+
+.inputs:focus {
+    border: 2px solid #000000;
 }
 
 .select {
@@ -44,10 +52,15 @@ header {
     background: #59FF7D;
     height: 40px;
     min-width: 120px;
+    transition: 0.5s;
+}
+
+.select:hover {
+    background: #4ee76f;
 }
 
 .hints {
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .btn_help {
@@ -57,7 +70,8 @@ header {
     height: 42px;
     background: #3E51B2;
     border-radius: 25px;
-    padding: 5px;
+    padding: 0 15px;
+    margin-right: 10px;
     transition: 0.3s;
 }
 
@@ -77,19 +91,114 @@ header {
 }
 
 .btn_delete:hover {
-    -webkit-transform: scale(1.02);
+    background: #e23434 url("../storage/x.png") center no-repeat;
+    background-size: 20px;
+}
+
+#polyclinicCards {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.error {
+    display: none;
+    color: red;
+}
+
+#emptyDocs {
+    display: none;
+}
+
+.availablePolyclinics {
+    display: none;
+    flex-flow: column;
+}
+
+.grid_item {
+    display: flex;
+    flex-flow: column;
+    border: none;
+    border-radius: 25px;
+    margin: 0 5px 10px;
+    cursor: pointer;
+    background: #8AAEF2;
+    width: 242px;
+    height: 304px;
+    padding: 10px 0 0 0;
+    transition: 0.5s;
+}
+
+.grid_item:hover {
+    -webkit-transform: scale(1.003);
+    background: #949dfc;
+}
+
+.grid_item .photo {
+    object-fit:cover;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    margin: 10px auto 0;
+}
+
+.grid_item .text_about_title {
+    margin-top: 20px;
+    text-align: center;
+    padding: 3px;
 }
 
 .selected_locality {
     display: none;
+    flex-flow: row;
 }
 
 .selected_polyclinic {
     display: none;
+    flex-flow: row;
 }
 
 .selected_doctor {
     display: none;
+    flex-flow: row;
+}
+
+#delete_polyclinic {
+    display: none;
+}
+
+#delete_doctor_card {
+    display: none;
+}
+
+.selected_num {
+    display: none;
+    flex-flow: row;
+    margin-bottom: 20px;
+}
+
+.box {
+    display: flex;
+    flex-flow: row;
+}
+
+.available_doctors {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.available_numbers {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.available_specs {
+    display: none;
+}
+
+.doctors-cards {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .doctor_card {
@@ -186,7 +295,7 @@ header {
     color:  white;
     font-size: 22px;
     min-width: 200px;
-    height: 60px;
+    height: 50px;
     padding: 0 10px;
     margin-bottom: 10px;
     transition: 0.4s;
@@ -202,6 +311,40 @@ header {
 
 h3 {
     font-weight: 400;
+}
+
+.select_village {
+    display: flex;
+    flex-flow: column;
+}
+
+@media (max-width: 750px) {
+    .main_title {
+        font-size: 28px;
+    }
+
+    .secondary_title {
+        font-size: 18px;
+    }
+
+    .select_village {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .input-box {
+        width: 100%;
+        flex-flow: column;
+    }
+
+    .select {
+        margin-left: 0;
+        width: 20%;
+    }
+
+    .btn_help {
+        margin-bottom: 5px;
+    }
 }
 
 
