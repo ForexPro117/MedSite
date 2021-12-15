@@ -43,9 +43,10 @@ header {
 .doctor_card {
     display: flex;
     flex-flow: column;
+    justify-content: space-between;
     border: none;
     width: 242px;
-    height: 242px;
+    height: 262px;
     background: rgba(88, 139, 237, 0.7);
     border-radius: 25px;
     text-align: center;
@@ -55,14 +56,14 @@ header {
 }
 
 .doctor_card .avatar {
+    display: block;
     height: 120px;
     width: 120px;
     border: none;
     border-radius: 50%;
-    background-image: url("../storage/photo.jpg");
-    background-size: cover;
-    background-position: center;
-    margin: auto auto 5px;
+    object-fit: cover;
+    position: center;
+    margin: 5px auto 5px;
 }
 
 

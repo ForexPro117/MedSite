@@ -4,9 +4,11 @@
         {{--врачи--}}
         @foreach($doctors as $doctor)
             <div id="{{$doctor->id}}" onclick="selectDoctorCard({{$doctor->id}})" class="doctor_card">
-                <img  class="avatar" src="{{asset($doctor->uri)}}">
-                <p class="name">{{$doctor->name}}</p>
-                <p class="spec">{{$doctor->specialization}}</p>
+                <div class="info_card">
+                    <img  class="avatar" src="{{asset($doctor->uri)}}">
+                    <p class="name">{{$doctor->name}}</p>
+                    <p class="spec">{{$doctor->specialization}}</p>
+                </div>
                 <div onclick="location.href='{{route('doctor-about',["id"=>$doctor->id])}}'"
                         class="details">Подробнее</div>
             </div>

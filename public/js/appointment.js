@@ -10,7 +10,7 @@ function selectDoctor(doctor) {
 
 function selectLocality() {
     if (document.getElementById('city').value !== '') {
-        document.querySelector('.selected_locality').style.display = 'flex'
+        document.querySelector('.selected_locality').style.display = 'flex';
         document.getElementById('selected_city').value = document.getElementById('city').value;
         document.getElementById('box-locality').style.display = 'none';
         document.querySelector('.availablePolyclinics').style.display = 'block';
@@ -42,6 +42,8 @@ function deletePolyclinic() {
         elem.style.display = 'flex';
     });
     document.querySelector('.available_specs').style.display = 'none';
+    document.querySelector('.available_doctors').style.display = 'none';
+    document.querySelector('.available_numbers').style.display = 'none';
 }
 
 function selectDoctorSpec() {
@@ -62,6 +64,9 @@ function deleteCity() {
     document.getElementById('city_box').style.display = 'flex';
     document.getElementById('city').value = "";
     document.querySelector('.availablePolyclinics').style.display = 'none';
+    document.querySelector('.available_specs').style.display = 'none';
+    document.querySelector('.available_doctors').style.display = 'none';
+    document.querySelector('.available_numbers').style.display = 'none';
 }
 
 function deleteDoctorSpec() {
@@ -70,7 +75,7 @@ function deleteDoctorSpec() {
     document.getElementById('box-doctors').style.display = 'flex';
     document.getElementById('doctor_box').style.display = 'flex';
     document.getElementById('docSpecialization').value = "";
-
+    document.querySelector('.available_numbers').style.display = 'none';
 }
 
 function selectDoctorCard(index) {
@@ -95,6 +100,7 @@ function deleteDocCard() {
     cards.forEach((elem)=>{
         elem.style.display = 'block';
     });
+    document.querySelector('.available_numbers').style.display = 'none';
 }
 
 function showHide(index) {
