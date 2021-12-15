@@ -1,5 +1,3 @@
-
-
 @extends('header')
 <title>Запись к врачу</title>
 <link rel="stylesheet" href="{{ asset('css/appoint.css') }}">
@@ -32,11 +30,11 @@
                     <input id="selected_city" type="button" class="btn_help">
                     <input id="delete_city" onclick="deleteCity()" type="button" class="btn_delete">
                 </div>
-{{--                ошибки--}}
+                {{--                ошибки--}}
                 <div id="regionErr" class="error">some errors</div>
             </div>
 
-{{--            бокс с карточками поликлиник--}}
+            {{--            бокс с карточками поликлиник--}}
             <div class="availablePolyclinics">
 
             </div>

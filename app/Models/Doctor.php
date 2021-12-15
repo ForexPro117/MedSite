@@ -28,6 +28,16 @@ class Doctor extends Model
             ->select('doctors.*','specialization.specialization','images.uri')
             ->get();
     }
+    public static function getDoctorsLike($id,$specialization)
+    {
+
+        return Doctor::leftJoin('specialization', 'id_spec', '=', 'specialization.id')
+            ->leftJoin('images', 'id_image', '=', 'images.id')
+            ->where('id_hostpital', $id)
+            ->where('specialization','like','%'.$specialization.'%')
+            ->select('doctors.*','specialization.specialization','images.uri')
+            ->get();
+    }
 
     /**
      * Возвращает модель Doctor если найдена,

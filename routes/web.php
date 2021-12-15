@@ -47,17 +47,13 @@ Route::get('/appointment', [NumberController::class, 'GetAppointPage'])
 
 Route::post('/appPolyCard', [NumberController::class, 'GetPolyclinics']);
 
-Route::post('/appDocCard', function () {
-    return view('doctor-card');
-});
+Route::post('/appDocCard', [NumberController::class, 'GetDocsCard']);
 
 Route::post('/appNumbers', function () {
     return view('numbers');
 });
 
-Route::post('/appSpecs', function () {
-    return view('specs');
-});
+Route::post('/appSpecs', [NumberController::class, 'GetSpecs']);
 
 Route::get('/submit_appointment', function () {
     return view('submit_appointment');

@@ -22,15 +22,14 @@ function selectLocality() {
 
 function selectPolyclinic(index) {
     let cards = document.querySelectorAll('.grid_item');
-
-    for (let i = 0; i < 10; i++) {
-        if (i === index) {
+    cards.forEach((elem)=>{
+        if (elem.id == index) {
             document.querySelector('.available_specs').style.display = 'block';
-            loadSpecs();
+            loadSpecs(elem.id);
         } else {
-            cards[i].style.display = 'none';
+            elem.style.display = 'none';
         }
-    }
+    });
     document.getElementById('delete_polyclinic').style.display = 'flex';
     document.querySelector('.available_specs').style.display = 'block';
 }
@@ -39,9 +38,9 @@ function deletePolyclinic() {
     document.getElementById('delete_polyclinic').style.display = 'none';
     let cards = document.querySelectorAll('.grid_item');
 
-    for (let i = 0; i < 10; i++) {
-        cards[i].style.display = 'flex';
-    }
+    cards.forEach((elem)=>{
+        elem.style.display = 'flex';
+    });
     document.querySelector('.available_specs').style.display = 'none';
 }
 
@@ -161,10 +160,10 @@ function loadPolyclinics() {
         })
 }
 
-function loadSpecs() {
+function loadSpecs(id) {
     queryPostRequest("/appSpecs",
         {
-            polyclinic: document.querySelector('.grid_item').id,
+            id: id,
         }, function (data) {
             document.querySelector(".available_specs").innerHTML = data;
         })
@@ -177,8 +176,8 @@ function loadSpecs() {
 function loadDoctorCards() {
     queryPostRequest("/appDocCard",
         {
-            polyclinic: document.querySelector('.grid_item').id,
-            specialization: document.getElementById('docSpecialization').value,
+            poly_id: document.querySelector('.grid_item').id,
+            spec: document.getElementById('docSpecialization').value,
         }, function (data) {
             document.querySelector(".available_doctors").innerHTML = data;
         })

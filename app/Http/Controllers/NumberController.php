@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discription;
+use App\Models\Doctor;
 use App\Models\Hospital;
-use Illuminate\Support\Facades\DB;
 
 class NumberController extends Controller
 {
@@ -21,5 +21,18 @@ class NumberController extends Controller
         $data = json_decode($_POST['data']);
         $polyclinics = Hospital::getPolyclinicsLike($data);
         return view('polyclinics-card',['polyclinics'=>$polyclinics]);
+    }
+    public function GetSpecs()
+    {
+        $data = json_decode($_POST['data']);
+        $specs = Doctor::getDoctors()->where('id_hostpital', $data->id)->groupBy('specialization');
+        return view('specs',['specs'=>$specs]);
+    }
+
+    public function GetDocsCard()
+    {
+        $data = json_decode($_POST['data']);
+        $doctors = Doctor::getDoctorsLike($data->poly_id,$data->spec);
+        return view('doctor-card',['doctors'=>$doctors]);
     }
 }

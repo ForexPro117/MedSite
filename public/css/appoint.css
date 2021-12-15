@@ -220,14 +220,12 @@ header {
 }
 
 .avatar {
-    height: 120px;
-    width: 120px;
+    object-fit:cover;
     border: none;
     border-radius: 50%;
-    background-image: url("../storage/photo.jpg");
-    background-size: cover;
-    background-position: center;
     margin: auto auto 5px;
+    width: 120px;
+    height: 120px;
 }
 
 
