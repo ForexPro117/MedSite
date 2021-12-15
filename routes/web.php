@@ -46,6 +46,7 @@ Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyc
  * Руты страницы appointment
  */
 Route::get('/appointment', [NumberController::class, 'GetAppointPage'])
+    ->middleware('auth')
     ->name('appointment');
 
 Route::post('/appPolyCard', [NumberController::class, 'GetPolyclinics']);
@@ -56,10 +57,8 @@ Route::post('/appNumbers',[NumberController::class, 'GetDocNumber']);
 
 Route::post('/appSpecs', [NumberController::class, 'GetSpecs']);
 
-Route::Post('/appointment/record', function () {
-    dd($_POST);
-    return view('submit-appointment');
-});
+Route::Post('/appointment/record',[NumberController::class, 'numberRecord'])
+    ->middleware('auth');
 
 
 /**
