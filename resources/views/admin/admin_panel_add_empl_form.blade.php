@@ -20,7 +20,7 @@
     <label>
         <div class="login_form_title">Роль</div>
         <select class="login_form_input" name="role" id="addForm_selected">
-            <option selected="selected" value="registration">registrar</option>
+            <option selected="selected" value="registration">registration</option>
             <option value="doctor">doctor</option>
             <option value="admin">admin</option>
         </select>

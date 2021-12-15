@@ -5,8 +5,10 @@
     <div class="container">
         <div class="content">
             <div class="title-sett">
+                @isset($doctor->name)
                 <div class="curren-box">
                     <h3>Текущая запись</h3>
+
                     <div class="current">
                         <div class="text-details">
                             <p class="city">Нас. пункт: <span>{{$polyclinic->city}}</span></p>
@@ -28,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-
+                @endisset
                 <div class="curren-box person-box">
                     <h3>Персональная информация</h3>
                     <div class="documents">
@@ -40,7 +42,7 @@
                 </div>
             </div>
 
-
+            @isset($history[0]->id_doctor)
             <div class="history-box">
                 <h3>История записей</h3>
                 @foreach($history as $record)
@@ -57,6 +59,7 @@
                     </div>
                 @endforeach
             </div>
+            @endisset
         </div>
 
     </div>

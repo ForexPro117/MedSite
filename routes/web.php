@@ -23,9 +23,7 @@ use Illuminate\Support\Facades\Route;
  * Руты используемые пользователями
  */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PolyclinicsInfoController::class, 'getStatistics']);
 
 Route::get('/user/account', [UserAccountController::class, 'getUserPage'])
     ->middleware(['auth']);

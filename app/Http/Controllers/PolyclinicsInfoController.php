@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Hospital;
+use App\Models\Number;
 
 
 class PolyclinicsInfoController extends Controller
@@ -40,6 +41,13 @@ class PolyclinicsInfoController extends Controller
         $polyclinic = Hospital::getPolyclinicById($id);
         $specializations = Doctor::getDoctors()->where('id_hostpital', $id)->groupBy('specialization');
         return view('polyclinic-about', ['polyclinic' => $polyclinic,'specializations' => $specializations]);
+    }
+    public function getStatistics()
+    {
+        $doctorsCount=Doctor::all()->count();
+        $numberCount = Number::where('time', '>=', now()->toDateTime())
+            ->where('time', '<', now()->addDay()->toDateTime())->count();
+        return view('home', ['numbercount' => $numberCount,'doctorsCount' => $doctorsCount]);
     }
 
 

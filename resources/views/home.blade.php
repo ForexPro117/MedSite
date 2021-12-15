@@ -19,15 +19,15 @@
     <div class="quick_info">
         <div class="container d-flex flex-row justify-content-between item">
             <div class="block d-flex flex-column">
-                <p class="number">253</p>
+                <p class="number">{{$numbercount}}</p>
                 <p class="desc">Записей сегодня</p>
             </div>
             <div class="block d-flex flex-column">
-                <p class="number">342</p>
+                <p class="number">{{$doctorsCount}}</p>
                 <p class="desc">Доступных врачей</p>
             </div>
             <div class="block d-flex flex-column">
-                <p class="number">54</p>
+                <p class="number">{{random_int(50,150)}}</p>
                 <p class="desc">Свободных номерков</p>
             </div>
         </div>
