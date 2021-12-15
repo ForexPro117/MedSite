@@ -4,6 +4,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EmployeeInfoController;
 use App\Http\Controllers\NumberController;
 use App\Http\Controllers\PolyclinicsInfoController;
+use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\UserInfoController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/user/account', function () {
-    return view('user-account');
-})->middleware(['auth']);
+Route::get('/user/account', [UserAccountController::class, 'getUserPage'])
+    ->middleware(['auth']);
 
 Route::get('/doctor/about/{id}', [DoctorController::class, 'getDoctorAbout'])
     ->name('doctor-about');
