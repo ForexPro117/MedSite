@@ -78,6 +78,7 @@ function selectDoctorCard(index) {
 
     cards.forEach((elem)=>{
         if (elem.id == index) {
+            document.getElementById('doc_id').value=elem.id;
             document.querySelector('.available_numbers').style.display = 'block';
             loadNumbers();
         } else {
@@ -104,7 +105,8 @@ function showHide(index) {
     }
 }
 
-function selectNumber(time) {
+function selectNumber(time,date) {
+    document.getElementById('dateOnRecord').value = date;
     document.querySelector('.selected_num').style.display = 'flex';
     document.getElementById('selected_num_btn').value = time;
     document.querySelector('.available_days').style.display = 'none';

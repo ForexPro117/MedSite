@@ -56,7 +56,8 @@ Route::post('/appNumbers',[NumberController::class, 'GetDocNumber']);
 
 Route::post('/appSpecs', [NumberController::class, 'GetSpecs']);
 
-Route::get('/appointment/record', function () {
+Route::Post('/appointment/record', function () {
+    dd($_POST);
     return view('submit-appointment');
 });
 

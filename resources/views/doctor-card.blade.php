@@ -12,6 +12,7 @@
             </div>
         @endforeach
     </div>
+    <input id="doc_id" name="doc_id" hidden>
     <input id="delete_doctor_card" onclick="deleteDocCard()" type="button" class="btn_delete">
 </div>
 

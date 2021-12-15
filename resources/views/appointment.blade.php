@@ -9,7 +9,7 @@
 
         {{--        переделать на пост и тд--}}
         <form action="/appointment/record" method="post">
-
+            @csrf
             {{--            бокс с населенными пунктами--}}
             <div class="availableRegions">
                 <label for="city" class="secondary_title">В каком населенном пункте вы бы хотели записаться?</label>
