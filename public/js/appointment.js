@@ -76,14 +76,14 @@ function deleteDoctorSpec() {
 function selectDoctorCard(index) {
     let cards = document.querySelectorAll('.doctor_card');
 
-    for (let i = 0; i < 10; i++) {
-        if (i === index) {
+    cards.forEach((elem)=>{
+        if (elem.id == index) {
             document.querySelector('.available_numbers').style.display = 'block';
             loadNumbers();
         } else {
-            cards[i].style.display = 'none';
+            elem.style.display = 'none';
         }
-    }
+    });
     document.getElementById('delete_doctor_card').style.display = 'flex';
 }
 
@@ -91,9 +91,9 @@ function deleteDocCard() {
     document.getElementById('delete_doctor_card').style.display = 'none';
     let cards = document.querySelectorAll('.doctor_card');
 
-    for (let i = 0; i < 10; i++) {
-        cards[i].style.display = 'block';
-    }
+    cards.forEach((elem)=>{
+        elem.style.display = 'block';
+    });
 }
 
 function showHide(index) {
@@ -186,7 +186,7 @@ function loadDoctorCards() {
 function loadNumbers() {
     queryPostRequest("/appNumbers",
         {
-            doctor: document.querySelector('.doctor_card').id,
+            doctor_id: document.querySelector('.doctor_card').id,
         }, function (data) {
             document.querySelector(".available_numbers").innerHTML = data;
         })

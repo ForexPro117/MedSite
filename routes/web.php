@@ -33,6 +33,9 @@ Route::get('/user/account', function () {
 Route::get('/doctor/about/{id}', [DoctorController::class, 'getDoctorAbout'])
     ->name('doctor-about');
 
+Route::post('/doctor/about/{id}', [DoctorController::class, 'getDoctorAbout'])
+    ->name('doctor-about-post');
+
 Route::get('/polyclinics/about/{id}', [PolyclinicsInfoController::class, 'getAboutPage'])
     ->name('polyclinic-about');
 
@@ -49,14 +52,12 @@ Route::post('/appPolyCard', [NumberController::class, 'GetPolyclinics']);
 
 Route::post('/appDocCard', [NumberController::class, 'GetDocsCard']);
 
-Route::post('/appNumbers', function () {
-    return view('numbers');
-});
+Route::post('/appNumbers',[NumberController::class, 'GetDocNumber']);
 
 Route::post('/appSpecs', [NumberController::class, 'GetSpecs']);
 
-Route::get('/submit_appointment', function () {
-    return view('submit_appointment');
+Route::get('/appointment/record', function () {
+    return view('submit-appointment');
 });
 
 

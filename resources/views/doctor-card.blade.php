@@ -3,11 +3,12 @@
     <div id="doctorCards" class="doctors-cards">
         {{--врачи--}}
         @foreach($doctors as $doctor)
-            <div id="{{$doctor->id}}" onclick="{{$doctor->id}}" class="doctor_card">
+            <div id="{{$doctor->id}}" onclick="selectDoctorCard({{$doctor->id}})" class="doctor_card">
                 <img  class="avatar" src="{{asset($doctor->uri)}}">
                 <p class="name">{{$doctor->name}}</p>
-                {{--<p class="spec">{{$doctor->specialization}}</p>--}}
-                <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
+                <p class="spec">{{$doctor->specialization}}</p>
+                <div onclick="location.href='{{route('doctor-about',["id"=>$doctor->id])}}'"
+                        class="details">Подробнее</div>
             </div>
         @endforeach
     </div>

@@ -8,7 +8,7 @@
         <h1 class="main_title">Запись на прием к врачу</h1>
 
         {{--        переделать на пост и тд--}}
-        <form action="/submit_appointment" method="post">
+        <form action="/appointment/record" method="post">
 
             {{--            бокс с населенными пунктами--}}
             <div class="availableRegions">

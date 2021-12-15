@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Discription;
 use App\Models\Doctor;
 use App\Models\Hospital;
+use App\Models\Number;
 
 class NumberController extends Controller
 {
@@ -25,7 +26,7 @@ class NumberController extends Controller
     public function GetSpecs()
     {
         $data = json_decode($_POST['data']);
-        $specs = Doctor::getDoctors()->where('id_hostpital', $data->id)->groupBy('specialization');
+        $specs = Doctor::getDoctors()->where('id_hostpital', $data->id)->groupBy('specialization')->take(5);
         return view('specs',['specs'=>$specs]);
     }
 
@@ -35,4 +36,12 @@ class NumberController extends Controller
         $doctors = Doctor::getDoctorsLike($data->poly_id,$data->spec);
         return view('doctor-card',['doctors'=>$doctors]);
     }
+    public function GetDocNumber()
+    {
+        $data = json_decode($_POST['data']);
+        $doctor=Doctor::getDoctorById($data->doctor_id);
+        $timetable=array_values(json_decode($doctor->timetable,true));
+        return view('numbers',['doctor'=>$doctor,'timetable'=>$timetable]);
+    }
+
 }
