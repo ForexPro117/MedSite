@@ -12,7 +12,8 @@ class UserAccountController extends Controller
     public function GetUserPage()
     {
 
-        $currentNumber = Number::where('time', '>=', now()->toDateTime())->orderByDesc('time')->first();
+        $currentNumber = Number::where('time', '>=', now()->toDateTime())
+            ->where('id_user', request()->user()->id)->orderByDesc('time')->first();
         $doctor = Doctor::getDoctorById($currentNumber->id_doctor);
         $polyclinic = Hospital::getPolyclinics()->where('id', $doctor->id_hostpital)->first();
         $history = Number::GetHistoryByUserId(request()->user()->id)->orderByDesc('time')->get();
