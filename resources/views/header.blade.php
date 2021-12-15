@@ -26,7 +26,7 @@
                 <p class="logo_text">ГЕОИНФОРМАЦИОННАЯ<br>СПРАВОЧНАЯ<br>СИСТЕМА</p>
             </a>
             <div class="d-flex ms-auto">
-                <input type="button" class="btn_search">
+               {{-- <input type="button" class="btn_search">--}}
                 @if(Auth::check())
                     <a href="/user/account" class="user-name nav-link py-3 text-white">{{Auth::user()->name}}</a>
                     <button type="button" onclick="location.href='/logout'" class="button_login">Выйти</button>

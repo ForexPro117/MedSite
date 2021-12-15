@@ -45,7 +45,7 @@ class PolyclinicsInfoController extends Controller
     public function getStatistics()
     {
         $doctorsCount=Doctor::all()->count();
-        $numberCount = Number::where('time', '>=', now()->toDateTime())
+        $numberCount = Number::where('time', '>=', now()->subHour(10)->toDateTime())
             ->where('time', '<', now()->addDay()->toDateTime())->count();
         return view('home', ['numbercount' => $numberCount,'doctorsCount' => $doctorsCount]);
     }
