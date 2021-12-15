@@ -18,7 +18,7 @@ class Number extends Model
 
     public static function GetHistoryByUserId($id)
     {
-        return Number::leftJoin('doctors', 'doctors.id', '=', 'number.id')
+        return Number::leftJoin('doctors', 'doctors.id', '=', 'number.id_doctor')
             ->leftJoin('specialization', 'id_spec', '=', 'specialization.id')
             ->where('id_user', $id)
             ->select('number.*', 'doctors.name', 'doctors.cabinet', 'doctors.area', 'specialization.specialization');
