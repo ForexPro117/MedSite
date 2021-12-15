@@ -2,16 +2,17 @@
 <div class="box">
     <div id="doctorCards" class="doctors-cards">
         {{--врачи--}}
-        <?php $i = 0 ?>
-        @for($i = 0; $i < 10;$i++)
-            <div id="<?php echo $i ?>" onclick="selectDoctorCard(<?php echo $i ?>)" class="doctor_card">
-                <div class="avatar"></div>
-                <p class="name">Иванов Иван Иванович</p>
-                <p class="spec">терапевт</p>
-                <button onclick="location.href='/doctor_about'" class="details">Подробнее</button>
+        @foreach($doctors as $doctor)
+            <div id="{{$doctor->id}}" onclick="selectDoctorCard({{$doctor->id}})" class="doctor_card">
+                <img  class="avatar" src="{{asset($doctor->uri)}}">
+                <p class="name">{{$doctor->name}}</p>
+                <p class="spec">{{$doctor->specialization}}</p>
+                <div onclick="location.href='{{route('doctor-about',["id"=>$doctor->id])}}'"
+                        class="details">Подробнее</div>
             </div>
-        @endfor
+        @endforeach
     </div>
+    <input id="doc_id" name="doc_id" hidden>
     <input id="delete_doctor_card" onclick="deleteDocCard()" type="button" class="btn_delete">
 </div>
 

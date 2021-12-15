@@ -15,6 +15,7 @@ class DoctorController extends Controller
     public function getDoctorAbout($id)
     {
         $doctor=Doctor::getDoctorById($id);
-        return view('doctor-about',['doctor'=>$doctor]);
+        $timetable=array_values(json_decode($doctor->timetable,true));
+        return view('doctor-about',['doctor'=>$doctor,'timetable'=>$timetable]);
     }
 }

@@ -10,16 +10,18 @@ class Number extends Model
     use HasFactory;
 
     /**
-     * Следует ли обрабатывать временные метки модели.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * Таблица БД, ассоциированная с моделью.
      *
      * @var string
      */
     protected $table = 'number';
+
+    public static function GetHistoryByUserId($id)
+    {
+        return Number::leftJoin('doctors', 'doctors.id', '=', 'number.id_doctor')
+            ->leftJoin('specialization', 'id_spec', '=', 'specialization.id')
+            ->where('id_user', $id)
+            ->select('number.*', 'doctors.name', 'doctors.cabinet', 'doctors.area', 'specialization.specialization');
+    }
+
 }

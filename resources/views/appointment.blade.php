@@ -1,5 +1,3 @@
-
-
 @extends('header')
 <title>Запись к врачу</title>
 <link rel="stylesheet" href="{{ asset('css/appoint.css') }}">
@@ -10,8 +8,8 @@
         <h1 class="main_title">Запись на прием к врачу</h1>
 
         {{--        переделать на пост и тд--}}
-        <form action="/submit_appointment" method="post">
-
+        <form action="/appointment/record" method="post">
+            @csrf
             {{--            бокс с населенными пунктами--}}
             <div class="availableRegions">
                 <label for="city" class="secondary_title">В каком населенном пункте вы бы хотели записаться?</label>
@@ -20,9 +18,10 @@
                         <input name="locality_name" type="text" id="city" class="inputs"
                                placeholder="Введите название нас. пункта...">
                         <div id="city_box" class="hints">
-                            <input type="button" class="btn_help" onclick="selectСity('Ижевск')" value="Ижевск">
-                            <input type="button" class="btn_help" onclick="selectСity('Сарапул')" value="Сарапул">
-                            <input type="button" class="btn_help" onclick="selectСity('Воткинск')" value="Воткинск">
+                            @foreach($regions as $region)
+                                <input type="button" class="btn_help"
+                                       onclick="selectСity('{{$region->district}}')" value={{$region->district}}>
+                            @endforeach
                         </div>
                     </div>
                     <button type="button" id="confirm" onclick="selectLocality()" class="select">Выбрать</button>
@@ -31,11 +30,11 @@
                     <input id="selected_city" type="button" class="btn_help">
                     <input id="delete_city" onclick="deleteCity()" type="button" class="btn_delete">
                 </div>
-{{--                ошибки--}}
+                {{--                ошибки--}}
                 <div id="regionErr" class="error">some errors</div>
             </div>
 
-{{--            бокс с карточками поликлиник--}}
+            {{--            бокс с карточками поликлиник--}}
             <div class="availablePolyclinics">
 
             </div>

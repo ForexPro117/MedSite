@@ -9,18 +9,22 @@
                     <h3>Текущая запись</h3>
                     <div class="current">
                         <div class="text-details">
-                            <p class="city">Нас. пункт: <span>Ижевск</span></p>
-                            <p class="polyclinic">Городская клиническая больница №7 (взрослое отделение)</p>
-                            <p class="address">Адрес: <span>г.Ижевск, ш.Воткинское 81</span></p>
-                            <p class="phone">Телефон: <span>45-24-01</span></p>
-                            <p class="time">Время: <span>21:00</span></p>
+                            <p class="city">Нас. пункт: <span>{{$polyclinic->city}}</span></p>
+                            <p class="polyclinic">{{$polyclinic->name}}</p>
+                            <p class="address">Адрес: <span>{{$polyclinic->city}},
+                                    {{$polyclinic->street}}, {{$polyclinic->home}}</span></p>
+                            <p class="phone">Телефон: <span>{{$polyclinic->phoneNumber}}</span></p>
+                            <p class="time">Время: <span>{{date('H:i d-m-y',strtotime($currentNumber->time))}}</span>
+                            </p>
                         </div>
                         <div class="doctor_card">
-                            <div class="avatar"></div>
-                            <p class="name">Иванов Иван Иванович</p>
-                            <p class="spec">терапевт</p>
+                            <img class="avatar" src="{{asset($doctor->uri)}}">
+                            <p class="name">{{$doctor->name}}</p>
+                            <p class="spec">{{$doctor->specialization}}</p>
                             {{--TODO не забыть--}}
-                            <button onclick="location.href='/doctor/about/1'" class="details">Подробнее</button>
+                            <button onclick="location.href='{{route('doctor-about',[$doctor->id])}}'"
+                                    class="details">Подробнее
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -39,17 +43,19 @@
 
             <div class="history-box">
                 <h3>История записей</h3>
+                @foreach($history as $record)
                     <div class="history-item">
                         <div class="date">
-                            <p>Дата: <span>21.12.2020</span></p>
-                            <p>Время: <span>12:20</span></p>
+                            <p>Дата: <span>{{date('d-m-y',strtotime($record->time))}}</span></p>
+                            <p>Время: <span>{{date('H:i',strtotime($record->time))}}</span></p>
                         </div>
                         <div class="doctor">
-                            <p class="spec">терапевт</p>
-                            <p class="doctor-name">Иванов И. И.</p>
+                            <p class="spec">{{$record->specialization}}</p>
+                            <p class="doctor-name">{{$record->name}}</p>
                         </div>
-                        <button onclick="signUpDoctor()" class="same-doctor">Записаться к этому специалисту</button>
+                        <button onclick="signUpDoctor({{$record->id_doctor}})" class="same-doctor">Записаться к этому специалисту</button>
                     </div>
+                @endforeach
             </div>
         </div>
 

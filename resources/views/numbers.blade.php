@@ -1,25 +1,25 @@
-@php
-    $numbers = array("9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00",
-                      "12:30","13:00", "13:30", "14:00", "14:30", "15:00", "15:30")
-@endphp
-
 <h4 class="secondary_title">Список доступных номерков</h4>
 <div id="numbers" class="available_days">
     {{--                    номерки--}}
-    <?php $i = 1000 ?>
-    <p class="day" onclick="showHide(<?php echo $i ?>)">Пятница, 11.12.2021</p>
-    <div id="<?php echo $i ?>" class="number-box">
-        @foreach($numbers as $number)
-            <input type="button" onclick="selectNumber('{{$number}}')" class="time_button"
-                   value="{{$number}}">
-        @endforeach
-    </div>
-    <?php $i++ ?>
+  @for($i=0;$i<count($timetable);$i++)
+        <div id="numbers" class="available_days">
+            <p class="day" onclick="showHide({{$i}})">{{now()->addHour(4)->addDay($i)->dayName}}, {{now()->addHour(4)->addDay($i)->format('d.m.Y')}}</p>
+            <div id="{{$i}}" class="number-box">
+                @foreach($timetable[now()->addHour(4)->addDay($i)->subDay(1)->dayOfWeek] as $time)
+                    <input type="button" readonly
+                           onclick="selectNumber('{{$time}}','{{now()->addHour(4)->addDay($i)->format('Y-m-d')}}')"
+                           class="time_button" value="{{$time}}">
+                @endforeach
+            </div>
+        </div>
+    @endfor
 </div>
 <div class="selected_num">
+
     <label for="selected_num_btn"></label><input name="time" id="selected_num_btn" type="text" class="time_button">
-    <input id="delete_num_btn" onclick="deleteNum({{count($numbers)}})" type="button"
+    <input id="delete_num_btn" onclick="deleteNum()" type="button"
            class="btn_delete">
+    <input id="dateOnRecord" name="dateOnRecord" hidden>
 </div>
 <button type="submit" class="submit">Записаться</button>
 

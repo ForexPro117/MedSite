@@ -4,10 +4,9 @@
         <input name="doctor_spec" type="text" id="docSpecialization" class="inputs"
                placeholder="Введите специализацию врача...">
         <div id="doctor_box" class="hints">
-            <input type="button" class="btn_help" onclick="selectDoctor('Терапевт')" value="Терапевт">
-            <input type="button" class="btn_help" onclick="selectDoctor('Гастроэнтеролог')"
-                   value="Гастроэнтеролог">
-            <input type="button" class="btn_help" onclick="selectDoctor('Гинеколог')" value="Гинеколог">
+            @foreach($specs as $key => $spec)
+            <input type="button" class="btn_help" onclick="selectDoctor('{{$key}}')" value="{{$key}}">
+            @endforeach
         </div>
     </div>
     <button type="button" onclick="selectDoctorSpec()" class="select">Выбрать</button>

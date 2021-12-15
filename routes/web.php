@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EmployeeInfoController;
+use App\Http\Controllers\NumberController;
 use App\Http\Controllers\PolyclinicsInfoController;
+use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\UserInfoController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,46 +27,38 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/appointment', function () {
-    return view('appointment');
-});
+Route::get('/user/account', [UserAccountController::class, 'getUserPage'])
+    ->middleware(['auth']);
 
-Route::get('/user/account', function () {
-    return view('user-account');
-})->middleware(['auth']);
-
-Route::get('/doctor/about/{id}',[DoctorController::class,'getDoctorAbout'])
+Route::get('/doctor/about/{id}', [DoctorController::class, 'getDoctorAbout'])
     ->name('doctor-about');
 
-Route::get('/polyclinics/about/{id}',[PolyclinicsInfoController::class, 'getAboutPage'])
+Route::post('/doctor/about/{id}', [DoctorController::class, 'getDoctorAbout'])
+    ->name('doctor-about-post');
+
+Route::get('/polyclinics/about/{id}', [PolyclinicsInfoController::class, 'getAboutPage'])
     ->name('polyclinic-about');
 
 Route::get('/polyclinics/{region}', [PolyclinicsInfoController::class, 'getPolyclinics'])
-->name('polyclinics');
+    ->name('polyclinics');
 
-Route::get('/appointment', function () {
-    return view('appointment');
-});
+/**
+ * Руты страницы appointment
+ */
+Route::get('/appointment', [NumberController::class, 'GetAppointPage'])
+    ->middleware('auth')
+    ->name('appointment');
 
-Route::post('/appPolyCard', function () {
-    return view('polyclinic_card');
-});
+Route::post('/appPolyCard', [NumberController::class, 'GetPolyclinics']);
 
-Route::post('/appDocCard', function () {
-    return view('doctor-card');
-});
+Route::post('/appDocCard', [NumberController::class, 'GetDocsCard']);
 
-Route::post('/appNumbers', function () {
-    return view('numbers');
-});
+Route::post('/appNumbers',[NumberController::class, 'GetDocNumber']);
 
-Route::post('/appSpecs', function () {
-    return view('specs');
-});
+Route::post('/appSpecs', [NumberController::class, 'GetSpecs']);
 
-Route::get('/submit_appointment', function () {
-    return view('submit_appointment');
-});
+Route::Post('/appointment/record',[NumberController::class, 'numberRecord'])
+    ->middleware('auth');
 
 
 /**
@@ -75,35 +69,44 @@ Route::get('/submit_appointment', function () {
 Route::get('/admin', function () {
     return view('admin.admin_panel');
 })->name('admin')
-    /*->middleware('auth')*/
-;
+    ->middleware('auth');
 
-Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList']);
+Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList'])
+    ->middleware('auth');
 
-Route::get('/admin/user/add-form',[UserInfoController::class, 'create']);
+Route::get('/admin/user/add-form', [UserInfoController::class, 'create'])
+    ->middleware('auth');
 
-Route::post('/admin/user/add-form',[UserInfoController::class, 'addUser']);
+Route::post('/admin/user/add-form', [UserInfoController::class, 'addUser'])
+    ->middleware('auth');
 
-Route::post('/admin/user/add', [UserInfoController::class, 'addUser']);
+Route::post('/admin/user/add', [UserInfoController::class, 'addUser'])
+    ->middleware('auth');
 
-Route::post('/admin/user/update', [UserInfoController::class, 'updateUser']);
+Route::post('/admin/user/update', [UserInfoController::class, 'updateUser'])
+    ->middleware('auth');
 
-Route::post('/admin/user/{id}', [UserInfoController::class, 'getUserForm']);
+Route::post('/admin/user/{id}', [UserInfoController::class, 'getUserForm'])
+    ->middleware('auth');
 
 
+Route::post('/admin/employee/list', [EmployeeInfoController::class, 'getEmployeesList'])
+    ->middleware('auth');
 
+Route::get('/admin/employee/add-form', [EmployeeInfoController::class, 'create'])
+    ->middleware('auth');
 
-Route::post('/admin/employee/list', [EmployeeInfoController::class, 'getEmployeesList']);
+Route::post('/admin/employee/add-form', [EmployeeInfoController::class, 'addEmployee'])
+    ->middleware('auth');
 
-Route::get('/admin/employee/add-form',[EmployeeInfoController::class, 'create']);
+Route::post('/admin/employee/add', [EmployeeInfoController::class, 'addEmployee'])
+    ->middleware('auth');
 
-Route::post('/admin/employee/add-form',[EmployeeInfoController::class, 'addEmployee']);
+Route::post('/admin/employee/update', [EmployeeInfoController::class, 'updateEmployee'])
+    ->middleware('auth');
 
-Route::post('/admin/employee/add', [EmployeeInfoController::class, 'addEmployee']);
-
-Route::post('/admin/employee/update', [EmployeeInfoController::class, 'updateEmployee']);
-
-Route::post('/admin/employee/{id}', [EmployeeInfoController::class, 'getEmployeeForm']);
+Route::post('/admin/employee/{id}', [EmployeeInfoController::class, 'getEmployeeForm'])
+    ->middleware('auth');
 
 
 require __DIR__ . '/auth.php';
