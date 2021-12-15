@@ -29,6 +29,7 @@ header {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    margin-right: 30px;
 }
 
 .text-details .city, .address, .phone, .time {
