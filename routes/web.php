@@ -72,6 +72,9 @@ Route::get('/admin', function () {
 Route::post('/admin/user/list', [UserInfoController::class, 'getUsersList'])
     ->middleware('auth');
 
+Route::post('/admin/user/numbersList', [UserInfoController::class, 'getUserNumberList'])
+    ->middleware('auth');
+
 Route::get('/admin/user/add-form', [UserInfoController::class, 'create'])
     ->middleware('auth');
 

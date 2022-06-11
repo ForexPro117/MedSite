@@ -13,7 +13,7 @@
 <body>
 <header class="header">
     <a href="/" class="logo">
-        <input type="image" class="logo_img" src="{{asset("storage/igis_logo_lett.png")}}">
+        {{--<input type="image" class="logo_img" src="{{asset("storage/igis_logo_lett.png")}}">--}}
     </a>
     <div id="text"></div>
     <button onclick="location.href='/logout'" class="logout">Выйти</button>
@@ -21,15 +21,24 @@
 <main id="main" class="main">
     <div class="sidenav" id="mySidenav">
         <div class="sidenav_main_block">
+            @canany(['admin-access','reg-access'])
                 <div id="user_list" class="sidenav_item" onclick="loadUsersListPage()">
                     <input type="image" class="logo_img" src="storage/group.png" alt="">
                     Список пользователей
                 </div>
-            {{--TODO список сотрудников должен быть доступен только админам--}}
+            @endcanany
+            @can('admin-access')
             <div id="employee_list" class="sidenav_item" onclick="loadEmployeesListPage()">
                 <input type="image" class="logo_img" src="storage/admin.png" alt="">
                 Список сотрудников
             </div>
+            @endcan
+                @canany(['admin-access','doctor-access'])
+                    <div id="number_list" class="sidenav_item" onclick="loadNumbersListPage()">
+                        <input type="image" class="logo_img" src="storage/number.png" alt="">
+                        Список номерков
+                    </div>
+                @endcanany
         </div>
     </div>
     <div class="main_window" id="action_window"></div>

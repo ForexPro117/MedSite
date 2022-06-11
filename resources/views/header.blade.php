@@ -22,8 +22,8 @@
     <header class="text-white">
         <div class="container nav p-2">
             <a href="/" class="logo navbar-brand nav text-white">
-                <input type="image" class="logo_img" src="{{asset("storage/igis_logo_lett.png")}}">
-                <p class="logo_text">ГЕОИНФОРМАЦИОННАЯ<br>СПРАВОЧНАЯ<br>СИСТЕМА</p>
+                <input type="image" class="logo_img" src="{{asset("storage/img_1.png")}}">
+                <p class="logo_text">СПРАВОЧНАЯ<br>СИСТЕМА</p>
             </a>
             <div class="d-flex ms-auto">
                {{-- <input type="button" class="btn_search">--}}
@@ -43,7 +43,7 @@
     </main>
     <footer>
         <div class="container d-flex flex-column">
-            <img src="{{asset("storage/igis_logo_white.png")}}" width="40" class="logo_footer">
+            {{--<img src="{{asset("storage/igis_logo_white.png")}}" width="40" class="logo_footer">--}}
             <a href="#" class="footer_link">Единый справочный номер +79999999999</a>
             <a href="#" class="footer_link">Оставить отзыв или предложение</a>
             <a href="#" class="footer_link">Реклама</a>

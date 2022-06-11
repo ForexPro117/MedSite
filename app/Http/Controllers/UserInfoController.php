@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Number;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,6 +24,18 @@ class UserInfoController extends Controller
     {
         return view("admin.admin_panel_user_list",
             ['users' => User::where('role', 'user')->get()]);
+    }
+    /**
+     * Возвращает список номерков
+     */
+    public function getUserNumberList()
+    {
+        if ( Gate::allows('admin-access')) {
+            return view("admin.admin_panel_number_list",
+                ['numbers' => Number::GetAllNumbers()]);
+        }
+        return view("admin.admin_panel_number_list",
+            ['numbers' => Number::GetCurrentNumbers(request()->user()->id)]);
     }
 
     /**

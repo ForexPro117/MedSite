@@ -49,8 +49,25 @@ function loadUsersListPage() {
     document.getElementById('user_list').style.color = 'rgb(255, 255, 255)';
     document.getElementById('employee_list').style.color = 'rgb(0, 0, 0)';
     document.getElementById('employee_list').style.background = 'rgb(255, 255, 255)';
+    document.getElementById('number_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('number_list').style.background = 'rgb(255, 255, 255)';
 }
+/**
+ * загрузить страницу со списком номерков
+ */
+function loadNumbersListPage() {
+    queryPostRequest("admin/user/numbersList", {}, function (data) {
+        document.getElementById("action_window").innerHTML = data
+    })
+    document.getElementById('number_list').style.color = 'rgb(255, 255, 255)';
+    document.getElementById('number_list').style.background = 'rgb(11, 136, 168)';
+    document.getElementById("text").innerText = "Список номерков";
+    document.getElementById('user_list').style.background = 'rgb(255, 255, 255)';
+    document.getElementById('user_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('employee_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('employee_list').style.background = 'rgb(255, 255, 255)';
 
+}
 /**
  * загрузить страницу со списком сотрудников
  */
@@ -58,11 +75,13 @@ function loadEmployeesListPage() {
     queryPostRequest("admin/employee/list", {}, function (data) {
         document.getElementById("action_window").innerHTML = data
     })
+    document.getElementById('employee_list').style.color = 'rgb(255, 255, 255)';
+    document.getElementById('employee_list').style.background = 'rgb(11, 136, 168)';
     document.getElementById("text").innerText = "Список сотрудников";
     document.getElementById('user_list').style.background = 'rgb(255, 255, 255)';
     document.getElementById('user_list').style.color = 'rgb(0, 0, 0)';
-    document.getElementById('employee_list').style.color = 'rgb(255, 255, 255)';
-    document.getElementById('employee_list').style.background = 'rgb(11, 136, 168)';
+    document.getElementById('number_list').style.color = 'rgb(0, 0, 0)';
+    document.getElementById('number_list').style.background = 'rgb(255, 255, 255)';
 }
 
 /**
@@ -74,7 +93,8 @@ window.onload = function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    loadUsersListPage();
+    //TODO тут не забыть!
+    /*loadUsersListPage();*/
 }
 
 /**
